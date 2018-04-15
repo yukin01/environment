@@ -63,3 +63,40 @@ zsh にするかも
 ```
 $ touch .bash_profile
 ```
+
+## rbenv
+
+https://github.com/rbenv/rbenv
+
+ruby の path を設定するために `.bash_profile` に以下を追加
+
+```
+eval "$(rbenv init -)"
+```
+
+rbenv で ruby の version を管理  
+(LTS ならなんでもいい)
+
+```
+$ source ~/.bash_profile
+$ rbenv version
+$ rbenv versions
+$ ruby -v
+$ rbenv install 2.5.1
+$ rbenv global 2.5.1
+$ rbenv rehash
+$ rbenv versions
+$ ruby -v
+```
+
+## bundler
+
+https://qiita.com/shinkuFencer/items/3679cfd966f6a61ccd1b
+
+bundler だけ global の gem で管理
+
+```
+$ gem install bundler
+```
+
+これ以後は各リポジトリ内で設定
