@@ -42,6 +42,16 @@ AppStore から Xcode をインストールして一度起動する
 
 https://brew.sh
 
+複数ユーザで使う場合はパーミッションを変更する
+
+```
+$ sudo chmod -R g+w /usr/local/var
+$ sudo chmod -R g+w /usr/local/Homebrew
+```
+
+参考：[複数のユーザーでHomebrewを使う
+](https://qiita.com/yshishido/items/ba5cd86afe217b221457)
+
 ## Homebrew-bundle
 
 https://github.com/Homebrew/homebrew-bundle
