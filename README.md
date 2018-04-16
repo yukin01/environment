@@ -46,7 +46,7 @@ https://brew.sh
 
 https://github.com/Homebrew/homebrew-bundle
 
-virtualbox で躓くはずなので先にインストールしておく
+virtualbox で躓くはずなので先にインストールしておく
 
 ```
 $ brew cask install virualbox
@@ -129,7 +129,7 @@ $ echo "export PATH=\$HOME/.nodebrew/current/bin:\$PATH" >> ~/.bash_profile
 $ source ~/.bash_profile
 ```
 
-安定版の nodejs をインストール
+安定版の nodejs をインストール
 
 ```
 $ nodebrew install stable
@@ -140,7 +140,7 @@ $ npm -v
 
 ## office & Adobe
 
-~~cask でやらない方がいいんじゃないか説~~  
+~~cask でやらない方がいいんじゃないか説~~  
 Adobe の方はインストーラしか入っていないので起動
 
 ```
