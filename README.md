@@ -56,11 +56,13 @@ $ sudo chmod -R g+w /usr/local/Homebrew
 
 https://github.com/Homebrew/homebrew-bundle
 
-virtualbox で躓くはずなので先にインストールしておく
+~~virtualbox で躓くはずなので先にインストールしておく~~ -> 多分大丈夫
 
-```
+注：minikube インストールよりも先に docker for mac の Kubernetes を有効にしてしまうと kubectl が競合してしまう
+
+<!-- ```bash
 $ brew cask install virualbox
-```
+``` -->
 
 Brewfile がある場所でパッケージをインストール
 
@@ -68,11 +70,10 @@ Brewfile がある場所でパッケージをインストール
 $ brew bundle
 ```
 
-バックアップを取る場合は
+Brewfile のバックアップを取る場合は
 
 ```
-$ rm Brewfile
-$ brew bundle dump
+$ brew bundle dump --force
 ```
 
 ## bash
