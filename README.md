@@ -159,3 +159,15 @@ $ open '/usr/local/Caskroom/adobe-creative-cloud/latest/Creative Cloud Installer
 ```
 
 あとは適当にライセンス認証
+
+## 所有権の変更
+
+複数ユーザーで Homebrew を管理していると色々困る  
+所有者を統一しておく
+
+```bash
+$ sudo chown -R hoge /usr/local/var
+$ sudo chown -R hoge /usr/local/Homebrew
+$ sudo chown -R hoge /usr/local/Cellar
+# 他にもあるかも
+```
