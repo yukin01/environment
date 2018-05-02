@@ -169,5 +169,6 @@ $ open '/usr/local/Caskroom/adobe-creative-cloud/latest/Creative Cloud Installer
 $ sudo chown -R hoge /usr/local/var
 $ sudo chown -R hoge /usr/local/Homebrew
 $ sudo chown -R hoge /usr/local/Cellar
+$ sudo chown -R hoge /usr/local/Caskroom
 # 他にもあるかも
 ```
