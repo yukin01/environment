@@ -1,13 +1,16 @@
 # Environment
 My environment for MacBookPro
 
+## Xcode
+
+AppStore から Xcode をインストールして一度起動する
+
 ## Git & SSH
 
 ```
 $ install -m 700 -d ~/.ssh
 ```
 
-鍵ファイルを移動する  
 .ssh/config ファイルを設定
 
 ```
@@ -15,10 +18,22 @@ $ vi ~/.ssh/config
 ```
 
 ```
-Host github.com
-    HostName github.com
-    IdentityFile hogehoge
-    User yukin01
+Host *
+  ServerAliveInterval 1200
+  ServerAliveCountMax 12
+  TCPKeepAlive yes
+  Compression yes
+  AddKeysToAgent yes
+  UseKeychain yes
+  GSSAPIAuthentication no
+  UseRoaming no
+```
+
+鍵ファイルを作成して GitHub に登録  
+参考：https://qiita.com/suthio/items/2760e4cff0e185fe2db9
+
+```
+$ ssh-keygen -t rsa -b 4096 -C "email@example.com"
 ```
 
 environment を clone
@@ -33,10 +48,6 @@ push 時に必要な情報を設定する
 $ git config --global user.name "yukin01"
 $ git config --global user.email "hogehoge"
 ```
-
-## Xcode
-
-AppStore から Xcode をインストールして一度起動する
 
 ## Homebrew
 
@@ -56,13 +67,13 @@ $ sudo chmod -R g+w /usr/local/Homebrew
 
 https://github.com/Homebrew/homebrew-bundle
 
-~~virtualbox で躓くはずなので先にインストールしておく~~ -> 多分大丈夫
+virtualbox で躓くことがあるので必要なら先にインストールしておく
+
+```bash
+$ brew cask install virualbox
+```
 
 注：minikube インストールよりも先に docker for mac の Kubernetes を有効にしてしまうと kubectl が競合してしまう
-
-<!-- ```bash
-$ brew cask install virualbox
-``` -->
 
 Brewfile がある場所でパッケージをインストール
 
@@ -78,21 +89,23 @@ $ brew bundle dump --force
 
 ## bash
 
-zsh にするかも
-
 ```
 $ touch .bash_profile
 ```
+
+gist から copy
 
 ## rbenv
 
 https://github.com/rbenv/rbenv
 
-ruby の path を設定するために `.bash_profile` に書き込む
+<!-- 
+ruby の path を設定するために `.bash_profile` に書き込む
 
 ```
 $ echo "eval "$(rbenv init -)"" >> ~/.bash_profile
 ```
+-->
 
 rbenv で ruby の version を管理  
 (LTS ならなんでもいい)
@@ -127,18 +140,20 @@ $ gem install bundler
 https://github.com/hokaccha/nodebrew
 https://qiita.com/twipg/items/c902b32b9e1e9ad7bc97
 
-nodebrew 用のディレクトリがなぜかなかったので作る
+nodebrew 用のディレクトリがなぜかなかったので作る
 
 ```
 mkdir -p ~/.nodebrew/src
 ```
 
+<!--
 パスを通す
 
 ```
 $ echo "export PATH=\$HOME/.nodebrew/current/bin:\$PATH" >> ~/.bash_profile
 $ source ~/.bash_profile
 ```
+-->
 
 安定版の nodejs をインストール
 
