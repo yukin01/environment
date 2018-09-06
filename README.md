@@ -151,7 +151,7 @@ gist から copy
 
 ログインシェルは bash のままで iTerm2 を zsh にする
 
-https://github.com/wesbos/Cobalt2-iterm
+https://github.com/wesbos/Cobalt2-iterm  
 https://qiita.com/NaokiIshimura/items/249bb1a101b626a59387
 
 `.zshrc` が作られているはずなので gist から copy
