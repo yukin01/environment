@@ -108,7 +108,7 @@ $ ruby -v
 
 ## bundler
 
-https://github.com/bundler/bundler
+https://github.com/bundler/bundler  
 https://qiita.com/shinkuFencer/items/3679cfd966f6a61ccd1b
 
 bundler だけ global の gem で管理
@@ -121,7 +121,7 @@ $ gem install bundler
 
 ## nodebrew
 
-https://github.com/hokaccha/nodebrew
+https://github.com/hokaccha/nodebrew  
 https://qiita.com/twipg/items/c902b32b9e1e9ad7bc97
 
 nodebrew 用のディレクトリがなぜかなかったので作る
