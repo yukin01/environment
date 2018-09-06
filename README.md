@@ -87,25 +87,9 @@ Brewfile のバックアップを取る場合は
 $ brew bundle dump --force
 ```
 
-## bash
-
-```
-$ touch .bash_profile
-```
-
-gist から copy
-
 ## rbenv
 
 https://github.com/rbenv/rbenv
-
-<!-- 
-ruby の path を設定するために `.bash_profile` に書き込む
-
-```
-$ echo "eval "$(rbenv init -)"" >> ~/.bash_profile
-```
--->
 
 rbenv で ruby の version を管理  
 (LTS ならなんでもいい)
@@ -146,15 +130,6 @@ nodebrew 用のディレクトリがなぜかなかったので作る
 mkdir -p ~/.nodebrew/src
 ```
 
-<!--
-パスを通す
-
-```
-$ echo "export PATH=\$HOME/.nodebrew/current/bin:\$PATH" >> ~/.bash_profile
-$ source ~/.bash_profile
-```
--->
-
 安定版の nodejs をインストール
 
 ```
@@ -163,6 +138,23 @@ $ nodebrew use stable
 $ node -v
 $ npm -v
 ```
+
+## bash
+
+```
+$ touch .bash_profile
+```
+
+gist から copy
+
+## zsh
+
+ログインシェルは bash のままで iTerm2 を zsh にする
+
+https://github.com/wesbos/Cobalt2-iterm
+https://qiita.com/NaokiIshimura/items/249bb1a101b626a59387
+
+`.zshrc` が作られているはずなので gist から copy
 
 ## office & Adobe
 
