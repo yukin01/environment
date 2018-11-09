@@ -1,4 +1,4 @@
-# Environment
+# Dotfiles
 My environment for MacBookPro
 
 ## Xcode
@@ -36,7 +36,7 @@ Host *
 $ ssh-keygen -t rsa -b 4096 -C "email@example.com"
 ```
 
-environment を clone
+dotfiles リポジトリを clone
 
 ```
 $ git clone git@~~
@@ -49,36 +49,17 @@ $ git config --global user.name "yukin01"
 $ git config --global user.email "hogehoge"
 ```
 
-## Homebrew
+## Preinstall
 
-https://brew.sh
+homebrew と各パッケージのインストール
 
-複数ユーザで使う場合はパーミッションを変更する
-
-```
-$ sudo chmod -R g+w /usr/local/var
-$ sudo chmod -R g+w /usr/local/Homebrew
-```
-
-参考：[複数のユーザーでHomebrewを使う
-](https://qiita.com/yshishido/items/ba5cd86afe217b221457)
-
-## Homebrew-bundle
-
-https://github.com/Homebrew/homebrew-bundle
-
-virtualbox で躓くことがあるので必要なら先にインストールしておく
-
-```bash
-$ brew cask install virualbox
-```
-
-注：minikube インストールよりも先に docker for mac の Kubernetes を有効にしてしまうと kubectl が競合してしまう
-
-Brewfile がある場所でパッケージをインストール
+| ツール名 | 用途 |
+|:-:|:-:|
+| [Homebrew](https://brew.sh) | Mac 用パッケージマネージャー |
+| [Homebrew Bundle](https://github.com/Homebrew/homebrew-bundle) | Brewfile で管理するためのツール |
 
 ```
-$ brew bundle
+$ sh preinstall.sh 2<&1
 ```
 
 Brewfile のバックアップを取る場合は
@@ -87,65 +68,44 @@ Brewfile のバックアップを取る場合は
 $ brew bundle dump --force
 ```
 
-## rbenv
+注：minikube インストールよりも先に docker for mac の Kubernetes を有効にしてしまうと kubectl が競合してしまう
 
-https://github.com/rbenv/rbenv
 
-rbenv で ruby の version を管理  
-(LTS ならなんでもいい)
 
-```
-$ source ~/.bash_profile
-$ rbenv version
-$ rbenv versions
-$ ruby -v
-$ rbenv install 2.5.1
-$ rbenv global 2.5.1
-$ rbenv rehash
-$ rbenv versions
-$ ruby -v
-```
+## Dotfiles
 
-## bundler
-
-https://github.com/bundler/bundler  
-https://qiita.com/shinkuFencer/items/3679cfd966f6a61ccd1b
-
-bundler だけ global の gem で管理
+シンボリックリンクを貼る  
+`.bashrc`/`.zshrc`/`.vimrc` などのシェル用 dotfile のみ管理する  
+それ以外の dotfile は各ツール再インストール時に作らせる
 
 ```
-$ gem install bundler
+$ sh link.sh 2<&1
 ```
 
-これ以後は各リポジトリ内で設定
+## 各言語のインストール
 
-## nodebrew
+homebrew でインストールした以下のバージョン管理ツールを用いる
 
-https://github.com/hokaccha/nodebrew  
-https://qiita.com/twipg/items/c902b32b9e1e9ad7bc97
+<!-- - [rbenv](https://github.com/rbenv/rbenv): ruby 本体のバージョンを管理
+- [bundler](https://github.com/bundler/bundler): Gem をローカルで管理するために必要
+- [nodebrew](https://github.com/hokaccha/nodebrew): node 本体のバージョンを管理
+- [goenv](https://github.com/syndbg/goenv): Go 本体のバージョンを管理 -->
 
-nodebrew 用のディレクトリがなぜかなかったので作る
 
-```
-mkdir -p ~/.nodebrew/src
-```
-
-安定版の nodejs をインストール
-
-```
-$ nodebrew install stable
-$ nodebrew use stable
-$ node -v
-$ npm -v
-```
-
-## bash
+| ツール名 | 用途 |
+|:---:|:---:|
+| [rbenv](https://github.com/rbenv/rbenv) | ruby 本体のバージョンを管理 |
+| [bundler](https://github.com/bundler/bundler) | Gem をローカルで管理するために必要 |
+| [nodebrew](https://github.com/hokaccha/nodebrew) | node 本体のバージョンを管理 |
+| [goenv](https://github.com/syndbg/goenv) | Go 本体のバージョンを管理 |
 
 ```
-$ touch .bash_profile
+$ sh install.sh 2<&1
 ```
 
-gist から copy
+参考  
+[MacにHomeBrew,rbenv,bundlerをインストールする](https://qiita.com/shinkuFencer/items/3679cfd966f6a61ccd1b)  
+[nodebrewでnodejsがインストール出来ないときの対処法](https://qiita.com/twipg/items/c902b32b9e1e9ad7bc97)  
 
 ## zsh
 
@@ -153,8 +113,6 @@ gist から copy
 
 https://github.com/wesbos/Cobalt2-iterm  
 https://qiita.com/NaokiIshimura/items/249bb1a101b626a59387
-
-`.zshrc` が作られているはずなので gist から copy
 
 ## office & Adobe
 
@@ -167,9 +125,17 @@ $ open '/usr/local/Caskroom/adobe-creative-cloud/latest/Creative Cloud Installer
 
 あとは適当にライセンス認証
 
-## 所有権の変更
+## 複数ユーザで使う場合
 
-複数ユーザーで Homebrew を管理していると色々困る  
+パーミッションを変更する
+
+```
+$ sudo chmod -R g+w /usr/local/var
+$ sudo chmod -R g+w /usr/local/Homebrew
+```
+
+参考：[複数のユーザーでHomebrewを使う](https://qiita.com/yshishido/items/ba5cd86afe217b221457)
+
 所有者を統一しておく
 
 ```bash
