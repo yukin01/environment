@@ -82,6 +82,11 @@ $ brew bundle dump --force
 $ sh link.sh 2<&1
 ```
 
+### shell ごとの設定ファイルについて
+
+- [ログインシェルとインタラクティブシェルと~/.bashrc達の関係](https://qiita.com/incep/items/7e5760de0c2c748296aa)
+- [zshの設定ファイルの読み込み順序と使い方Tipsまとめ](https://qiita.com/muran001/items/7b104d33f5ea3f75353f)
+
 ## 各言語のインストール
 
 homebrew でインストールした以下のバージョン管理ツールを用いる
