@@ -6,7 +6,7 @@ echo "install homebrew"
 
 echo "brew install"
 # virtualbox で躓くことがあるので必要なら先にインストールしておく
-brew cask install virualbox
+brew cask install virtualbox
 brew bundle
 
 echo "\nPreinstalled successfully"

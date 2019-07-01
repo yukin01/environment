@@ -1,6 +1,9 @@
 #!/bin/bash
 set -eu
 
+# oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 # ruby
 echo "===== install ruby via rbenv ====="
 rbenv init
