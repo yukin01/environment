@@ -2,7 +2,12 @@
 set -eu
 
 # oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+echo "===== install oh-my-zsh ====="
+if [ -d ~/.oh-my-zsh ]; then
+    echo "already installed"
+else
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+fi
 
 # ruby
 echo "===== install ruby via rbenv ====="
