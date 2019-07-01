@@ -12,9 +12,11 @@ else
     echo "please change iTerm2 settings"
 fi
 
+set +e
+
 # ruby
 echo "===== install ruby via rbenv ====="
-rbenv init
+eval "$(rbenv init -)"
 rbenv install 2.5.1
 rbenv global 2.5.1
 rbenv rehash
