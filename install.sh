@@ -7,6 +7,9 @@ if [ -d ~/.oh-my-zsh ]; then
     echo "already installed"
 else
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    ./fonts/install.sh
+    cp ./cobalt2/cobalt2.zsh-theme ~/.oh-my-zsh/themes/
+    echo "please change iTerm2 settings"
 fi
 
 # ruby
