@@ -28,7 +28,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here like this:
-  "call dein#add('Shougo/neosnippet.vim')
+  call dein#add('scrooloose/nerdtree')
   "call dein#add('Shougo/neosnippet-snippets')
 
   " Required:
