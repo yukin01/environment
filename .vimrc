@@ -45,4 +45,8 @@ if dein#check_install()
   call dein#install()
 endif
 
-"End dein Scripts-------------------------
+"End dein Scripts------------------------
+
+"#####プラグイン設定#####
+let NERDTreeShowHidden=1 "NERDTree で dotfiles を表示する
+
