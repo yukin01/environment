@@ -66,6 +66,11 @@ ZSH_THEME="cobalt2"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  vagrant
+  yarn
+  npm
+  docker
+  docker-compose
 )
 
 source $ZSH/oh-my-zsh.sh
