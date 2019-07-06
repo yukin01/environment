@@ -54,10 +54,10 @@ endif
 " NERDTree で dotfiles を表示する
 let NERDTreeShowHidden=1
 " 起動時にNERDTreeを表示
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 " ファイル名が指定されてVIMが起動した場合はNERDTreeを表示しない
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " NERDTree で git の状態を表示
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "M",
