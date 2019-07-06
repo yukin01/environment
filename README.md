@@ -7,18 +7,14 @@ AppStore から Xcode をインストールして一度起動する
 
 ## Git & SSH
 
-```
+```bash
 $ install -m 700 -d ~/.ssh
 ```
 
 .ssh/config ファイルを設定
 
-```
-$ vi ~/.ssh/config
-```
-
-```
-Host *
+```bash
+$ echo "Host *
   ServerAliveInterval 1200
   ServerAliveCountMax 12
   TCPKeepAlive yes
@@ -26,25 +22,25 @@ Host *
   AddKeysToAgent yes
   UseKeychain yes
   GSSAPIAuthentication no
-  UseRoaming no
+  UseRoaming no" > ~/.ssh/config
 ```
 
 鍵ファイルを作成して GitHub に登録  
 参考：https://qiita.com/suthio/items/2760e4cff0e185fe2db9
 
-```
+```bash
 $ ssh-keygen -t rsa -b 4096 -C "email@example.com"
 ```
 
 dotfiles リポジトリを clone
 
-```
+```bash
 $ git clone git@~~
 ```
 
 push 時に必要な情報を設定する
 
-```
+```bash
 $ git config --global user.name "yukin01"
 $ git config --global user.email "hogehoge"
 ```
@@ -58,19 +54,17 @@ homebrew と各パッケージのインストール
 | [Homebrew](https://brew.sh) | Mac 用パッケージマネージャー |
 | [Homebrew Bundle](https://github.com/Homebrew/homebrew-bundle) | Brewfile で管理するためのツール |
 
-```
+```bash
 $ sh preinstall.sh 2<&1
 ```
 
 Brewfile のバックアップを取る場合は
 
-```
+```bash
 $ brew bundle dump --force
 ```
 
 注：minikube インストールよりも先に docker for mac の Kubernetes を有効にしてしまうと kubectl が競合してしまう
-
-
 
 ## Dotfiles
 
@@ -78,7 +72,7 @@ $ brew bundle dump --force
 `.bashrc`/`.zshrc`/`.vimrc` などのシェル用 dotfile のみ管理する  
 それ以外の dotfile は各ツール再インストール時に作らせる
 
-```
+```bash
 $ sh link.sh 2<&1
 ```
 
@@ -91,12 +85,6 @@ $ sh link.sh 2<&1
 
 homebrew でインストールした以下のバージョン管理ツールを用いる
 
-<!-- - [rbenv](https://github.com/rbenv/rbenv): ruby 本体のバージョンを管理
-- [bundler](https://github.com/bundler/bundler): Gem をローカルで管理するために必要
-- [nodebrew](https://github.com/hokaccha/nodebrew): node 本体のバージョンを管理
-- [goenv](https://github.com/syndbg/goenv): Go 本体のバージョンを管理 -->
-
-
 | ツール名 | 用途 |
 |:---:|:---:|
 | [rbenv](https://github.com/rbenv/rbenv) | ruby 本体のバージョンを管理 |
@@ -104,7 +92,7 @@ homebrew でインストールした以下のバージョン管理ツールを�
 | [nodebrew](https://github.com/hokaccha/nodebrew) | node 本体のバージョンを管理 |
 | [goenv](https://github.com/syndbg/goenv) | Go 本体のバージョンを管理 |
 
-```
+```bash
 $ sh install.sh 2<&1
 ```
 
@@ -112,29 +100,19 @@ $ sh install.sh 2<&1
 [MacにHomeBrew,rbenv,bundlerをインストールする](https://qiita.com/shinkuFencer/items/3679cfd966f6a61ccd1b)  
 [nodebrewでnodejsがインストール出来ないときの対処法](https://qiita.com/twipg/items/c902b32b9e1e9ad7bc97)  
 
-## zsh
+## iTerm2
 
 ログインシェルは bash のままで iTerm2 を zsh にする
 
+参考  
 https://github.com/wesbos/Cobalt2-iterm  
 https://qiita.com/NaokiIshimura/items/249bb1a101b626a59387
-
-## office & Adobe
-
-~~cask でやらない方がいいんじゃないか説~~  
-Adobe の方はインストーラしか入っていないので起動
-
-```
-$ open '/usr/local/Caskroom/adobe-creative-cloud/latest/Creative Cloud Installer.app'
-```
-
-あとは適当にライセンス認証
 
 ## 複数ユーザで使う場合
 
 パーミッションを変更する
 
-```
+```bash
 $ sudo chmod -R g+w /usr/local/var
 $ sudo chmod -R g+w /usr/local/Homebrew
 ```
