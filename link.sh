@@ -2,7 +2,7 @@
 set -eu
 DOT_DIRECTORY="${HOME}/dotfiles"
 
-echo "make dotfile's symbolic link"
+echo "===== make dotfile's symbolic link ====="
 for f in .??*; do
     [[ "$f" == ".git" ]] && continue
     [[ "$f" == ".DS_Store" ]] && continue
