@@ -1,5 +1,5 @@
 " auto reload .vimrc
-augroup source-vimrc
+augroup source_vimrc
   autocmd!
   autocmd BufWritePost *vimrc source $MYVIMRC | set foldmethod=marker
   autocmd BufWritePost *gvimrc if has('gui_running') source $MYGVIMRC
@@ -24,7 +24,7 @@ Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
 " Initialize plugin system
 call plug#end()
 
-"#####プラグイン設定#####
+"##### プラグイン設定 #####
 
 " NERDTree で dotfiles を表示する
 let NERDTreeShowHidden=1
