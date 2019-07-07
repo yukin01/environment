@@ -65,19 +65,6 @@ echo "path: $(which go)"
 echo "version: $(go version)"
 echo ""
 
-# dein.vim
-# is needed?
-# https://github.com/Shougo/dein.vim
-# https://qiita.com/sugamondo/items/fcaf210ca86d65bcaca8
-echo "===== install dein.vim ====="
-sleep 0.5
-if [ -d ~/.cache/dein ]; then
-    echo "already installed"
-else
-    sh .vim/dein/installer.sh ~/.cache/dein
-fi
-echo ""
-
 # oh-my-zsh
 echo "===== install oh-my-zsh ====="
 sleep 0.5
