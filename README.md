@@ -3,7 +3,7 @@ My environment for MacBookPro
 
 ## Xcode
 
-AppStore から Xcode をインストールして一度起動する
+Install *Xcode* from *App Store* and launch once.
 
 ## Git & SSH
 
@@ -11,7 +11,7 @@ AppStore から Xcode をインストールして一度起動する
 $ install -m 700 -d ~/.ssh
 ```
 
-.ssh/config ファイルを設定
+Generate `.ssh/config`.
 
 ```bash
 $ echo "Host *
@@ -25,20 +25,19 @@ $ echo "Host *
   UseRoaming no" > ~/.ssh/config
 ```
 
-鍵ファイルを作成して GitHub に登録  
-参考：https://qiita.com/suthio/items/2760e4cff0e185fe2db9
+Generate an SSH key and upload it to GitHub.
 
 ```bash
 $ ssh-keygen -t rsa -b 4096 -C "email@example.com"
 ```
 
-dotfiles リポジトリを clone
+Clone this repo.
 
 ```bash
 $ git clone git@~~
 ```
 
-push 時に必要な情報を設定する
+Set global git configurations.
 
 ```bash
 $ git config --global user.name "yukin01"
@@ -47,68 +46,71 @@ $ git config --global user.email "hogehoge"
 
 ## Preinstall
 
-homebrew と各パッケージのインストール
+Install *Homebrew* and packages.
 
-| ツール名 | 用途 |
+| name | usage |
 |:-:|:-:|
-| [Homebrew](https://brew.sh) | Mac 用パッケージマネージャー |
-| [Homebrew Bundle](https://github.com/Homebrew/homebrew-bundle) | Brewfile で管理するためのツール |
+| [Homebrew](https://brew.sh) | Package Manager for MacOS |
+| [Homebrew Bundle](https://github.com/Homebrew/homebrew-bundle) | Bundler with `Brewfile` |
 
 ```bash
 $ sh preinstall.sh 2<&1
 ```
 
-Brewfile のバックアップを取る場合は
+You can create a Brewfile from all the existing Homebrew packages.
 
 ```bash
 $ brew bundle dump --force
 ```
 
-注：minikube インストールよりも先に docker for mac の Kubernetes を有効にしてしまうと kubectl が競合してしまう
+For `kubectl`, don't enable *Docker for Mac*'s k8s option before installing *Minikube*.
 
 ## Dotfiles
 
-シンボリックリンクを貼る  
-`.bashrc`/`.zshrc`/`.vimrc` などのシェル用 dotfile のみ管理する  
-それ以外の dotfile は各ツール再インストール時に作らせる
+Create symbolic links for shell settings.  
+e.g. `.bashrc`/`.zshrc`/`.vimrc`
 
 ```bash
 $ sh link.sh 2<&1
 ```
 
-### shell ごとの設定ファイルについて
+## Languages and ZSH
 
-- [ログインシェルとインタラクティブシェルと~/.bashrc達の関係](https://qiita.com/incep/items/7e5760de0c2c748296aa)
-- [zshの設定ファイルの読み込み順序と使い方Tipsまとめ](https://qiita.com/muran001/items/7b104d33f5ea3f75353f)
-
-## 各言語のインストール
-
-homebrew でインストールした以下のバージョン管理ツールを用いる
-
-| ツール名 | 用途 |
+| name | usage |
 |:---:|:---:|
-| [rbenv](https://github.com/rbenv/rbenv) | ruby 本体のバージョンを管理 |
-| [bundler](https://github.com/bundler/bundler) | Gem をローカルで管理するために必要 |
-| [nodebrew](https://github.com/hokaccha/nodebrew) | node 本体のバージョンを管理 |
-| [goenv](https://github.com/syndbg/goenv) | Go 本体のバージョンを管理 |
+| [rbenv](https://github.com/rbenv/rbenv) | Ruby version manager |
+| [bundler](https://github.com/bundler/bundler) | Bundler for gem locally |
+| [nodebrew](https://github.com/hokaccha/nodebrew) | Node.js version manager |
+| [goenv](https://github.com/syndbg/goenv) | Go version manager |
 
 ```bash
 $ sh install.sh 2<&1
 ```
 
-参考  
-[MacにHomeBrew,rbenv,bundlerをインストールする](https://qiita.com/shinkuFencer/items/3679cfd966f6a61ccd1b)  
-[nodebrewでnodejsがインストール出来ないときの対処法](https://qiita.com/twipg/items/c902b32b9e1e9ad7bc97)  
+### iTerm2
 
-## iTerm2
+- zsh `/usr/local/bin/zsh`
+- [color](https://github.com/wesbos/Cobalt2-iterm)
+- [font](https://github.com/powerline/fonts)
 
-ログインシェルは bash のままで iTerm2 を zsh にする
+## TODO
 
-参考  
-https://github.com/wesbos/Cobalt2-iterm  
-https://qiita.com/NaokiIshimura/items/249bb1a101b626a59387
+- oh-my-zsh to [prezto](https://github.com/sorin-ionescu/prezto)
+- cobalt2 to [powerlevel9k](https://github.com/bhilburn/powerlevel9k)
+- [suggestion] fish
+- [suggestion] ansible
+- ubuntu support
 
-## 複数ユーザで使う場合
+## References
+
+- [お前らのSSH Keysの作り方は間違っている](https://qiita.com/suthio/items/2760e4cff0e185fe2db9)
+- [MacにHomeBrew,rbenv,bundlerをインストールする](https://qiita.com/shinkuFencer/items/3679cfd966f6a61ccd1b)  
+- [nodebrewでnodejsがインストール出来ないときの対処法](https://qiita.com/twipg/items/c902b32b9e1e9ad7bc97)  
+- [oh my zsh 導入手順メモ (Mac)](https://qiita.com/NaokiIshimura/items/249bb1a101b626a59387)
+- [ログインシェルとインタラクティブシェルと~/.bashrc達の関係](https://qiita.com/incep/items/7e5760de0c2c748296aa)
+- [zshの設定ファイルの読み込み順序と使い方Tipsまとめ](https://qiita.com/muran001/items/7b104d33f5ea3f75353f)
+
+<!-- ## 複数ユーザで使う場合
 
 パーミッションを変更する
 
@@ -127,4 +129,4 @@ $ sudo chown -R hoge /usr/local/Homebrew
 $ sudo chown -R hoge /usr/local/Cellar
 $ sudo chown -R hoge /usr/local/Caskroom
 # 他にもあるかも
-```
+``` -->
