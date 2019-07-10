@@ -34,7 +34,7 @@ let NERDTreeShowHidden=1
 let g:nerdtree_tabs_open_on_console_startup=1
 
 " for vim-nerdtree-tabs
-noremap <C-n> :NERDTreeFocus<CR>
+noremap <C-n> :NERDTreeFocusToggle<CR>
 
 " ファイル名が指定されてVIMが起動した場合はNERDTreeを表示しない
 " augroup auto_nerdtree
