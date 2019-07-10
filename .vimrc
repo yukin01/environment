@@ -20,6 +20,7 @@ call plug#begin('~/.vim/plugged')
 " On-demand loading
 " Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'jistr/vim-nerdtree-tabs'
 
 " Initialize plugin system
 call plug#end()
@@ -29,12 +30,18 @@ call plug#end()
 " NERDTree で dotfiles を表示する
 let NERDTreeShowHidden=1
 
+" デフォルトでツリーを表示させる
+let g:nerdtree_tabs_open_on_console_startup=1
+
+" for vim-nerdtree-tabs
+noremap <C-n> :NERDTreeFocus<CR>
+
 " ファイル名が指定されてVIMが起動した場合はNERDTreeを表示しない
-augroup auto_nerdtree
-  autocmd!
-  autocmd StdinReadPre * let s:std_in=1
-  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-augroup END
+" augroup auto_nerdtree
+"   autocmd!
+"   autocmd StdinReadPre * let s:std_in=1
+"   autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" augroup END
 
 " NERDTree で git の状態を表示
 let g:NERDTreeIndicatorMapCustom = {
