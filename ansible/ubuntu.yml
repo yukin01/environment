@@ -1,0 +1,6 @@
+---
+- hosts: local_ubuntu 
+  roles:
+    - packages
+    - git_config
+
