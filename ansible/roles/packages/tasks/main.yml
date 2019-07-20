@@ -5,7 +5,7 @@
     state: latest
   become: true
 
-- name: upgrade all apt packages
+- name: Upgrade all apt packages
   apt:
     update_cache: yes
     upgrade: safe
@@ -26,4 +26,13 @@
       - terminator
       - tmux
       - jq
+  become: true
+
+- name: Install packages from snap
+  snap:
+    name: "{{ packages }}"
+    classic: yes
+  vars:
+    packages:
+      - code
   become: true
