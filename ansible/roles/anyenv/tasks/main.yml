@@ -1,0 +1,44 @@
+---
+- name: Install anyenv repository
+  git:
+    repo: https://github.com/anyenv/anyenv
+    dest: $HOME/.anyenv
+
+- name: Initialize install manifest directory
+  shell: $HOME/.anyenv/bin/anyenv install --force-init
+  args:
+    creates: $HOME/.config/anyenv/anyenv-install
+
+- name: Install each env
+  shell: "$HOME/.anyenv/bin/anyenv install {{ item }}"
+  args:
+    creates: "$HOME/.anyenv/envs/{{ item }}"
+  with_items:
+    - rbenv
+
+- name: Install apt package for ruby-build
+  apt:
+    name: "{{ packages }}"
+    state: latest
+    update_cache: yes
+  vars:
+    packages:
+      - autoconf
+      - bison
+      - build-essential
+      - libssl-dev
+      - libyaml-dev
+      - libreadline6-dev
+      - zlib1g-dev
+      - libncurses5-dev
+      - libffi-dev
+      - libgdbm5
+      - libgdbm-dev
+  become: yes
+
+- name: Install ruby
+  shell: rbenv install 2.6.3
+  args:
+    creates: $HOME/.anyenv/envs/rbenv/versions/2.6.3
+  environment:
+    PATH: "$HOME/.anyenv/bin:{{ lookup('env', 'PATH') }}"

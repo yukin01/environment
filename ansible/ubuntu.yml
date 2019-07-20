@@ -3,4 +3,4 @@
   roles:
     - packages
     - git_config
-
+    - anyenv
