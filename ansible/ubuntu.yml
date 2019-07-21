@@ -4,3 +4,4 @@
     - packages
     - git_config
     - anyenv
+    - shutter
