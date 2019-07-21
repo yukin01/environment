@@ -23,16 +23,15 @@
       - vim
       - zsh
       - zsh-syntax-highlighting
-      - terminator
       - tmux
       - jq
   become: true
 
-- name: Install packages from snap
-  snap:
-    name: "{{ packages }}"
-    classic: yes
-  vars:
-    packages:
-      - code
-  become: true
+# - name: Install packages from snap
+#   snap:
+#     name: "{{ packages }}"
+#     classic: yes
+#   vars:
+#     packages:
+#       - code
+#   become: true

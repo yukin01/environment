@@ -1,0 +1,27 @@
+---
+- name: Install apt repository
+  apt_repository:
+    repo: ppa:sicklylife/ppa # for shutter
+  become: yes
+
+- name: Install applications
+  apt:
+    name: "{{ packages }}"
+    state: latest
+    update_cache: yes
+  vars:
+    packages:
+      - terminator
+      - libgoo-canvas-perl # for shutter
+      - shutter
+  become: yes
+
+- name: Install applications from snap
+  snap:
+    name: "{{ packages }}"
+    classic: yes
+  vars:
+    packages:
+      - code
+      - android-studio
+  become: yes
