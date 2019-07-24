@@ -1,0 +1,10 @@
+---
+dotfiles:
+  - .bash_profile
+  - .bashrc
+  - .zprofile
+  - .zshrc
+  - .envrc
+  - .vimrc
+  - .vim
+  - .tmux.conf
