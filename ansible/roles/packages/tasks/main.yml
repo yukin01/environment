@@ -1,0 +1,37 @@
+---
+- name: Install aptitude
+  apt:
+    name: aptitude
+    state: latest
+  become: true
+
+- name: Upgrade all apt packages
+  apt:
+    update_cache: yes
+    upgrade: safe
+  become: true
+
+- name: Install packages from apt
+  apt:
+    name: "{{ packages }}"
+    state: latest
+    update_cache: yes
+  vars:
+    packages:
+      - git
+      - curl
+      - vim
+      - zsh
+      - zsh-syntax-highlighting
+      - tmux
+      - jq
+  become: true
+
+# - name: Install packages from snap
+#   snap:
+#     name: "{{ packages }}"
+#     classic: yes
+#   vars:
+#     packages:
+#       - code
+#   become: true

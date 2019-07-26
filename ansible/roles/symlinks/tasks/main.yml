@@ -1,0 +1,24 @@
+---
+- name: Find dotfiles
+  find:
+    paths: ~/dotfiles
+    use_regex: yes
+    patterns: "^[\\.].+$"
+    recurse: no
+    hidden: yes
+    file_type: any
+    excludes:
+      - .git
+      - .gitignore
+      - .gitmodules
+  register: found_dotfiles
+
+- name: Make symbolic links
+  # command: "ln -snfv {{ item }} {{ item | regex_replace('/dotfiles', '') }}"
+  file:
+    src: "{{ item }}"
+    dest: "{{ item | regex_replace('/dotfiles', '') }}"
+    state: link
+    force: yes
+  with_items:
+    - "{{ found_dotfiles.files | map(attribute='path') | list }}"
