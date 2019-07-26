@@ -11,10 +11,5 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-AGNOSTER_PROMPT_SEGMENTS=(
-  "prompt_status"
-  "prompt_dir"
-  "prompt_git"
-  "prompt_end"
-)
-
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()

@@ -65,30 +65,22 @@ echo "path: $(which go)"
 echo "version: $(go version)"
 echo ""
 
-# oh-my-zsh
-echo "===== install oh-my-zsh ====="
-sleep 0.5
-if [ -d ~/.oh-my-zsh ]; then
-    echo "already installed"
+# prezto
+echo "===== install prezto ====="
+sleep 0/5
+if [ -d ${ZDOTDIR:-$HOME}/.zprezto ]; then
+  echo "already installed"
 else
-    # oh-my-zsh
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-    # powerline (font)
-    ./fonts/install.sh
-    # cobalt2 (zsh-theme)
-    cp ./cobalt2/cobalt2.zsh-theme ~/.oh-my-zsh/themes/
-    
-    echo ""
-    echo "please change iTerm2 settings"
-    echo ""
-    echo "    1. iTerm2 > Preferences > Profiles"
-    echo "    2. Under the Colors tab import the cobalt2.itermcolors."
-    echo "    3. Under the Text tab change the font for each type (Regular and Non-ASCII) to powerline."
-    echo ""
-    echo "    https://github.com/wesbos/Cobalt2-iterm"
-    echo ""
+  # prezto
+  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+  # powerline (font)
+  ./fonts/install.sh
+
+  echo ""
+  echo "Prezto is installed successfully"
+  echo ""
+
 fi
-echo ""
 
 echo "Installed successfully"
 
