@@ -11,6 +11,8 @@
     update_cache: yes
   vars:
     packages:
+      - gnome-tweaks
+      - gnome-shell-extensions
       - terminator
       - libgoo-canvas-perl # for shutter
       - shutter
