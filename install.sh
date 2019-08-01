@@ -1,6 +1,45 @@
 #!/bin/bash
 set -eu
 
+# rbenv
+echo "===== install rbenv via anyenv ====="
+sleep 0.5
+if which rbenv >/dev/null; then
+    echo "rbenv is already installed"
+else
+    anyenv install rbenv
+    eval "$(anyenv init -)"
+fi
+echo ""
+echo "path: $(which rbenv)"
+echo ""
+
+# nodenv
+echo "===== install nodenv via anyenv ====="
+sleep 0.5
+if which nodenv >/dev/null; then
+    echo "already installed"
+else
+    anyenv install nodenv
+    eval "$(anyenv init -)"
+fi
+echo ""
+echo "path: $(which nodenv)"
+echo ""
+
+# goenv
+echo "===== install goenv via anyenv ====="
+sleep 0.5
+if which goenv >/dev/null; then
+    echo "already installed"
+else
+    anyenv install goenv
+    eval "$(anyenv init -)"
+fi
+echo ""
+echo "path: $(which goenv)"
+echo ""
+
 # ruby
 echo "===== install ruby via rbenv ====="
 sleep 0.5
@@ -8,8 +47,8 @@ if which ruby | grep .rbenv >/dev/null; then
     echo "already installed"
 else
     eval "$(rbenv init -)"
-    rbenv install 2.5.1
-    rbenv global 2.5.1
+    rbenv install 2.6.3
+    rbenv global 2.6.3
     rbenv rehash
 fi
 echo ""
@@ -33,14 +72,14 @@ echo "version: $(bundler -v)"
 echo ""
 
 # node
-echo "===== install node via nodebrew ====="
+echo "===== install node via nodenv ====="
 sleep 0.5
-if which node | grep .nodebrew >/dev/null; then 
+if which node | grep .nodenv >/dev/null; then
     echo "already installed"
 else
-    mkdir -p ~/.nodebrew/src
-    nodebrew install stable
-    nodebrew use stable
+    nodenv install 10.12.0
+    nodenv global 10.12.0
+    nodenv rehash
 fi
 echo ""
 echo "node_path: $(which node)"
@@ -67,7 +106,7 @@ echo ""
 
 # prezto
 echo "===== install prezto ====="
-sleep 0/5
+sleep 0.5
 if [ -d ${ZDOTDIR:-$HOME}/.zprezto ]; then
   echo "already installed"
 else
