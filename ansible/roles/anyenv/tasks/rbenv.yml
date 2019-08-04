@@ -1,0 +1,30 @@
+---
+- name: Install apt package for ruby-build
+  apt:
+    name: "{{ packages }}"
+    state: latest
+    update_cache: yes
+  vars:
+    packages:
+      - autoconf
+      - bison
+      - build-essential
+      - libssl-dev
+      - libyaml-dev
+      - libreadline6-dev
+      - zlib1g-dev
+      - libncurses5-dev
+      - libffi-dev
+      - libgdbm5
+      - libgdbm-dev
+  become: yes
+
+- name: Install ruby
+  shell: |
+    rbenv install -s {{ ruby_version }}
+    rbenv global {{ ruby_version }}
+    rbenv rehash
+  args:
+    creates: "{{ home }}/.anyenv/envs/rbenv/versions/{{ ruby_version }}"
+  environment:
+    PATH: "{{ home }}/.anyenv/bin:{{ ansible_env.PATH }}"

@@ -2,6 +2,7 @@
 screen_name: yukin01
 screen_name_sub: _yukin01
 email_address: bump1105@gmail.com
+home: "{{ ansible_env.HOME }}"
 
 include_vars:
   - vault.yml

@@ -14,5 +14,11 @@ fi
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 
-# set PATH
+# for anyenv
+if [ -d $HOME/.anyenv ]; then
+    export PATH=$HOME/.anyenv/bin:$PATH
+    eval "$(anyenv init - zsh)"
+fi
+
+# set alies
 [ -f ~/.envrc ] && . ~/.envrc

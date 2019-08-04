@@ -1,6 +1,12 @@
 # echo "this is bashrc"
 
-# Set PATH
+# for anyenv
+if [ -d $HOME/.anyenv ]; then
+    export PATH=$HOME/.anyenv/bin:$PATH
+    eval "$(anyenv init - bash)"
+fi
+
+# Set alies
 [ -f ~/.envrc ] && . ~/.envrc
 
 # colorize

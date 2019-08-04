@@ -1,0 +1,10 @@
+---
+- name: Install node {{ node_version }}
+  shell: |
+    nodenv install -s {{ node_version }}
+    nodenv global {{ node_version }}
+    nodenv rehash
+  args:
+    creates: "{{ home }}/.anyenv/envs/nodenv/versions/{{ node_version }}"
+  environment:
+    PATH: "{{ home }}/.anyenv/bin:{{ ansible_env.PATH }}"
