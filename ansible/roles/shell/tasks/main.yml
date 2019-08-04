@@ -2,6 +2,7 @@
 - name: Get zsh directory name
   shell: echo ${ZDOTDIR:-$HOME}
   register: zdotdir
+  changed_when: no
 
 - name: Install prezto repository
   git:
