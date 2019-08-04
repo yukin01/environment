@@ -1,9 +1,9 @@
 ---
 - hosts: local_ubuntu 
   roles:
-    #- packages
-    #- git_config
-    #- applications
-    #- anyenv
+    - packages
+    - git_config
+    - applications
+    - anyenv
     - docker
     - shell
