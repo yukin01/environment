@@ -12,7 +12,7 @@ fi
 
 # Customize to your needs...
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(aws)
 
 # set PATH
 [ -f ~/.envrc ] && . ~/.envrc
