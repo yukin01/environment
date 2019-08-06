@@ -1,0 +1,12 @@
+---
+- name: Install go {{ go_version }}
+  shell: |
+    goenv install -s {{ go_version }}
+    goenv global {{ go_version }}
+    goenv rehash
+  vars:
+    goenv_dir: "{{ home }}/.anyenv/envs/goenv"
+  args:
+    creates: "{{ goenv_dir }}/versions/{{ go_version }}"
+  environment:
+    PATH: "{{ goenv_dir }}/bin:{{ goenv_dir }}/plugins/go-build/bin:{{ ansible_env.PATH }}"

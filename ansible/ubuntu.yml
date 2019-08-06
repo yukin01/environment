@@ -4,6 +4,6 @@
     - packages
     - git_config
     - applications
+    - shell
     - anyenv
     - docker
-    - shell

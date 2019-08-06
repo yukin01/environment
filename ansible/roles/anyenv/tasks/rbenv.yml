@@ -24,7 +24,9 @@
     rbenv install -s {{ ruby_version }}
     rbenv global {{ ruby_version }}
     rbenv rehash
+  vars:
+    rbenv_dir: "{{ home }}/.anyenv/envs/rbenv"
   args:
-    creates: "{{ home }}/.anyenv/envs/rbenv/versions/{{ ruby_version }}"
+    creates: "{{ rbenv_dir }}/versions/{{ ruby_version }}"
   environment:
-    PATH: "{{ home }}/.anyenv/bin:{{ ansible_env.PATH }}"
+    PATH: "{{ rbenv_dir }}/bin:{{ rbenv_dir }}/plugins/ruby-build/bin:{{ ansible_env.PATH }}"

@@ -4,7 +4,9 @@
     nodenv install -s {{ node_version }}
     nodenv global {{ node_version }}
     nodenv rehash
+  vars:
+    nodenv_dir: "{{ home }}/.anyenv/envs/nodenv"
   args:
-    creates: "{{ home }}/.anyenv/envs/nodenv/versions/{{ node_version }}"
+    creates: "{{ nodenv_dir }}/versions/{{ node_version }}"
   environment:
-    PATH: "{{ home }}/.anyenv/bin:{{ ansible_env.PATH }}"
+    PATH: "{{ nodenv_dir }}/bin:{{ nodenv_dir }}/plugins/node-build/bin:{{ ansible_env.PATH }}"

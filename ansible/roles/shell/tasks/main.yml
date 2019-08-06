@@ -33,3 +33,9 @@
     force: yes
   with_items:
     - "{{ found_dotfiles.files | map(attribute='path') | list }}"
+
+- name: Change login shell
+  user:
+    name: "{{ ansible_env.USER }}"
+    shell: /usr/bin/zsh
+  become: yes
