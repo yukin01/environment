@@ -23,6 +23,7 @@ Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'editorconfig/editorconfig-vim'
 
 " Initialize plugin system
 call plug#end()

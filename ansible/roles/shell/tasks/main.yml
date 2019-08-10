@@ -12,7 +12,7 @@
 
 - name: Find dotfiles
   find:
-    paths: ~/dotfiles
+    paths: ~/dotfiles/files
     use_regex: yes
     patterns: "^[\\.].+$"
     recurse: no
@@ -28,7 +28,7 @@
   # command: "ln -snfv {{ item }} {{ item | regex_replace('/dotfiles', '') }}"
   file:
     src: "{{ item }}"
-    dest: "{{ item | regex_replace('/dotfiles', '') }}"
+    dest: "{{ item | regex_replace('/dotfiles/files', '') }}"
     state: link
     force: yes
   with_items:
