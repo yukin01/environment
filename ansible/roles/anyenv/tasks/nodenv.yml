@@ -10,3 +10,23 @@
     creates: "{{ nodenv_dir }}/versions/{{ node_version }}"
   environment:
     PATH: "{{ nodenv_dir }}/bin:{{ nodenv_dir }}/plugins/node-build/bin:{{ ansible_env.PATH }}"
+
+- name: Add yarn GPG key
+  apt_key:
+    url: https://dl.yarnpkg.com/debian/pubkey.gpg
+  become: yes
+
+- name: Add apt repository
+  lineinfile:
+    path: /etc/apt/sources.list.d/yarn.list
+    line: deb https://dl.yarnpkg.com/debian/ stable main
+    create: yes
+  become: yes
+
+- name: Install yarn
+  apt:
+    name: yarn
+    state: present
+    update_cache: yes
+    install_recommends: no
+  become: yes
