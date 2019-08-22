@@ -24,6 +24,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'hashivim/vim-terraform'
 
 " Initialize plugin system
 call plug#end()
@@ -40,7 +41,7 @@ let g:airline_theme = 'luna'
 " if !exists('g:airline_symbols')
 "     let g:airline_symbols = {}
 " endif
-" 
+"
 " " unicode symbols
 " let g:airline_left_sep = '»'
 " let g:airline_left_sep = '▶'
@@ -60,7 +61,7 @@ let g:airline_theme = 'luna'
 " let g:airline_symbols.spell = 'Ꞩ'
 " let g:airline_symbols.notexists = '∄'
 " let g:airline_symbols.whitespace = 'Ξ'
-" 
+"
 " " powerline symbols
 " let g:airline_left_sep = ''
 " let g:airline_left_alt_sep = ''
