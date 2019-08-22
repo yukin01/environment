@@ -1,12 +1,13 @@
 #!/bin/bash
 set -eu
-DOT_DIRECTORY="${HOME}/dotfiles"
+DOTFILES_DIR="${HOME}/dotfiles/files"
 
 echo "===== make dotfile's symbolic link ====="
+cd $DOTFILES_DIR
 for f in .??*; do
     [[ "$f" == ".git" ]] && continue
     [[ "$f" == ".gitmodules" ]] && continue
     [[ "$f" == ".DS_Store" ]] && continue
 
-    ln -snfv $DOT_DIRECTORY/$f $HOME/$f
+    ln -snfv $DOTFILES_DIR/$f $HOME/$f
 done
