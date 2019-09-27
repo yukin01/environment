@@ -26,4 +26,5 @@
     packages:
       - code
       - android-studio
+      - slack
   become: yes
