@@ -1,0 +1,11 @@
+---
+- name: Install terraform {{ terraform_version }}
+  shell: |
+    tfenv install {{ terraform_version }}
+    tfenv use {{ terraform_version }}
+  vars:
+    tfenv_dir: "{{ home }}/.anyenv/envs/tfenv"
+  args:
+    creates: "{{ tfenv_dir }}/versions/{{ terraform_version }}"
+  environment:
+    PATH: "{{ tfenv_dir }}/bin:{{ ansible_env.PATH }}"
