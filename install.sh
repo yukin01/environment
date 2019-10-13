@@ -43,7 +43,7 @@ echo ""
 # ruby
 echo "===== install ruby via rbenv ====="
 sleep 0.5
-if which ruby | grep .rbenv >/dev/null; then 
+if which ruby | grep .rbenv >/dev/null; then
     echo "already installed"
 else
     eval "$(rbenv init -)"
@@ -90,19 +90,19 @@ echo "npm_version: $(npm -v)"
 echo ""
 
 # go
-echo "===== install go via goenv ====="
-sleep 0.5
-if which go | grep .goenv >/dev/null; then 
-    echo "already installed"
-else
-    goenv install 1.11.2
-    goenv global 1.11.2
-    goenv rehash
-fi
-echo ""
-echo "path: $(which go)"
-echo "version: $(go version)"
-echo ""
+# echo "===== install go via goenv ====="
+# sleep 0.5
+# if which go | grep .goenv >/dev/null; then
+#     echo "already installed"
+# else
+#     goenv install 1.11.2
+#     goenv global 1.11.2
+#     goenv rehash
+# fi
+# echo ""
+# echo "path: $(which go)"
+# echo "version: $(go version)"
+# echo ""
 
 # prezto
 echo "===== install prezto ====="
