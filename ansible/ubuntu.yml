@@ -1,5 +1,5 @@
 ---
-- hosts: local_ubuntu 
+- hosts: local_ubuntu
   roles:
     - packages
     - git_config
@@ -7,3 +7,4 @@
     - shell
     - anyenv
     - docker
+    - gcloud
