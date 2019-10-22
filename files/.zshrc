@@ -7,8 +7,13 @@
 
 # for anyenv
 if [ -d $HOME/.anyenv ]; then
-    export PATH=$HOME/.anyenv/bin:$PATH
-    eval "$(anyenv init - zsh)"
+  export PATH=$HOME/.anyenv/bin:$PATH
+  eval "$(anyenv init - zsh)"
+fi
+
+# for tfenv
+if [ -d $HOME/.tfenv ]; then
+  export PATH=$HOME/.tfenv/bin:$PATH
 fi
 
 # set alies

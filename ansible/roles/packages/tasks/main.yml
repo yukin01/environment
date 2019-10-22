@@ -45,3 +45,14 @@
       - awscli
     executable: pip3
   become: true
+
+- name: Install tfenv from git repository
+  git:
+    repo: http://github.com/tfutils/tfenv.git
+    dest: "{{ home }}/.tfenv"
+
+- name: Use gpg key when installing terraform
+  lineinfile:
+    path: "{{ home }}/.tfenv/use-gpgv"
+    line: "trust-tfenv: yes"
+    create: yes
