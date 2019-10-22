@@ -11,6 +11,11 @@
     upgrade: safe
   become: true
 
+- name: Add apt repository
+  apt_repository:
+    repo: ppa:longsleep/golang-backports
+  become: yes
+
 - name: Install packages from apt
   apt:
     name: "{{ packages }}"
@@ -25,6 +30,7 @@
       - tmux
       - jq
       - python3-pip
+      - golang-go
   become: true
 
 #- name: Upgrade pip3
@@ -39,3 +45,14 @@
       - awscli
     executable: pip3
   become: true
+
+- name: Install tfenv from git repository
+  git:
+    repo: http://github.com/tfutils/tfenv.git
+    dest: "{{ home }}/.tfenv"
+
+- name: Use gpg key when installing terraform
+  lineinfile:
+    path: "{{ home }}/.tfenv/use-gpgv"
+    line: "trust-tfenv: yes"
+    create: yes
