@@ -16,7 +16,6 @@
   with_items:
     - rbenv
     - nodenv
-    #- goenv
 
 - name: Install ruby via rbenv
   import_tasks: rbenv.yml
@@ -24,5 +23,5 @@
 - name: Install node via nodenv
   import_tasks: nodenv.yml
 
-#- name: Install go via goenv
-#  import_tasks: goenv.yml
+- name: Install terraform via tfenv
+  import_tasks: tfenv.yml

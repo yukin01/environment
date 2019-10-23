@@ -1,11 +1,22 @@
 ---
+- name: Install tfenv from git repository
+  git:
+    repo: http://github.com/tfutils/tfenv.git
+    dest: "{{ home }}/.tfenv"
+
+- name: Use gpg key when installing terraform
+  lineinfile:
+    path: "{{ home }}/.tfenv/use-gpgv"
+    line: "trust-tfenv: yes"
+    create: yes
+
 - name: Install terraform {{ terraform_version }}
   shell: |
-    tfenv install {{ terraform_version }}
-    tfenv use {{ terraform_version }}
+    {{ tfenv }} install {{ terraform_version }}
+    {{ tfenv }} use {{ terraform_version }}
   vars:
-    tfenv_dir: "{{ home }}/.anyenv/envs/tfenv"
+    tfenv: "{{ home }}/.tfenv/bin/tfenv"
   args:
-    creates: "{{ tfenv_dir }}/versions/{{ terraform_version }}"
-  environment:
-    PATH: "{{ tfenv_dir }}/bin:{{ ansible_env.PATH }}"
+    creates: "{{ home }}/.tfenv/versions/{{ terraform_version }}"
+  #environment:
+  #  PATH: "{{ tfenv_dir }}/bin:{{ ansible_env.PATH }}"
