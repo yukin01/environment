@@ -46,3 +46,12 @@
       - awscli
     executable: pip3
   become: true
+
+- name: Install packages from snap
+  snap:
+    name: "{{ packages }}"
+    classic: yes
+  vars:
+    packages:
+      - hub
+  become: yes
