@@ -16,8 +16,8 @@ fi
 
 # fzf zsh key-bindings
 fzf_dir=$GOPATH/src/github.com/junegunn/fzf
-source "/home/yukin01/go/src/github.com/junegunn/fzf/shell/key-bindings.zsh"
-#unset fzf_dir
+[ -d $fzf_dif ] && source "$fzf_dir/shell/key-bindings.zsh"
+unset fzf_dir
 
 # ghq zsh completion
 fpath_ghq=$GOPATH/src/github.com/motemen/ghq/zsh
