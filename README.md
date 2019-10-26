@@ -48,10 +48,10 @@ $ git config --global user.email "hogehoge"
 
 Install *Homebrew* and packages.
 
-| name | usage |
-|:-:|:-:|
-| [Homebrew](https://brew.sh) | Package Manager for MacOS |
-| [Homebrew Bundle](https://github.com/Homebrew/homebrew-bundle) | Bundler with `Brewfile` |
+|                              name                              |           usage           |
+|:--------------------------------------------------------------:|:-------------------------:|
+|                  [Homebrew](https://brew.sh)                   | Package Manager for MacOS |
+| [Homebrew Bundle](https://github.com/Homebrew/homebrew-bundle) |  Bundler with `Brewfile`  |
 
 ```bash
 $ sh preinstall.sh 2<&1
@@ -67,7 +67,7 @@ For `kubectl`, don't enable *Docker for Mac*'s k8s option before installing *Min
 
 ## Dotfiles
 
-Create symbolic links for shell settings.  
+Create symbolic links for shell settings.
 e.g. `.bashrc`/`.zshrc`/`.vimrc`
 
 ```bash
@@ -76,12 +76,11 @@ $ sh link.sh 2<&1
 
 ## Languages and ZSH
 
-| name | usage |
-|:---:|:---:|
-| [rbenv](https://github.com/rbenv/rbenv) | Ruby version manager |
+|                     name                      |          usage          |
+|:---------------------------------------------:|:-----------------------:|
+|    [rbenv](https://github.com/rbenv/rbenv)    |  Ruby version manager   |
 | [bundler](https://github.com/bundler/bundler) | Bundler for gem locally |
-| [nodebrew](https://github.com/hokaccha/nodebrew) | Node.js version manager |
-| [goenv](https://github.com/syndbg/goenv) | Go version manager |
+|  [nodenv](https://github.com/nodenv/nodenv)   | Node.js version manager |
 
 ```bash
 $ sh install.sh 2<&1
@@ -98,14 +97,12 @@ $ sh install.sh 2<&1
 - oh-my-zsh to [prezto](https://github.com/sorin-ionescu/prezto)
 - cobalt2 to [powerlevel9k](https://github.com/bhilburn/powerlevel9k)
 - [suggestion] fish
-- [suggestion] ansible
-- ubuntu support
 
 ## References
 
 - [お前らのSSH Keysの作り方は間違っている](https://qiita.com/suthio/items/2760e4cff0e185fe2db9)
-- [MacにHomeBrew,rbenv,bundlerをインストールする](https://qiita.com/shinkuFencer/items/3679cfd966f6a61ccd1b)  
-- [nodebrewでnodejsがインストール出来ないときの対処法](https://qiita.com/twipg/items/c902b32b9e1e9ad7bc97)  
+- [MacにHomeBrew,rbenv,bundlerをインストールする](https://qiita.com/shinkuFencer/items/3679cfd966f6a61ccd1b)
+- [nodebrewでnodejsがインストール出来ないときの対処法](https://qiita.com/twipg/items/c902b32b9e1e9ad7bc97)
 - [oh my zsh 導入手順メモ (Mac)](https://qiita.com/NaokiIshimura/items/249bb1a101b626a59387)
 - [ログインシェルとインタラクティブシェルと~/.bashrc達の関係](https://qiita.com/incep/items/7e5760de0c2c748296aa)
 - [zshの設定ファイルの読み込み順序と使い方Tipsまとめ](https://qiita.com/muran001/items/7b104d33f5ea3f75353f)
