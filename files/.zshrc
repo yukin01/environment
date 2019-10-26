@@ -14,10 +14,14 @@ fi
 # set alies
 [ -f ~/.envrc ] && source ~/.envrc
 
-# fzf zsh key-bindings
-fzf_dir=$GOPATH/src/github.com/junegunn/fzf
-[ -d $fzf_dif ] && source "$fzf_dir/shell/key-bindings.zsh"
-unset fzf_dir
+# fzf zsh completion and key-bindings
+#
+# You should execute install command manually
+#   $HOME/go/src/github.com/src/junegunn/fzf/install
+# or
+#   $(brew --prefix)/opt/fzf/install
+#
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # ghq zsh completion
 fpath_ghq=$GOPATH/src/github.com/motemen/ghq/zsh
