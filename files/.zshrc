@@ -11,18 +11,19 @@ if [ -d $HOME/.anyenv ]; then
   eval "$(anyenv init - zsh)"
 fi
 
-# for tfenv
-if [ -d $HOME/.tfenv ]; then
-  export PATH=$HOME/.tfenv/bin:$PATH
-fi
-
 # set alies
 [ -f ~/.envrc ] && source ~/.envrc
 
-# zsh completion
+# fzf zsh key-bindings
+fzf_dir=$GOPATH/src/github.com/junegunn/fzf
+source "/home/yukin01/go/src/github.com/junegunn/fzf/shell/key-bindings.zsh"
+#unset fzf_dir
+
+# ghq zsh completion
 fpath_ghq=$GOPATH/src/github.com/motemen/ghq/zsh
 [ -d $fpath_ghq ] && fpath=($fpath_ghq $fpath)
 autoload -U compinit && compinit
+unset fpath_ghq
 
 # Customize to your needs...
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir vcs)
@@ -32,4 +33,3 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(aws)
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
-
