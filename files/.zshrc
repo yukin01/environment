@@ -15,12 +15,6 @@ fi
 [ -f ~/.envrc ] && source ~/.envrc
 
 # fzf zsh completion and key-bindings
-#
-# You should execute install command manually
-#   $HOME/go/src/github.com/src/junegunn/fzf/install
-# or
-#   $(brew --prefix)/opt/fzf/install
-#
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # ghq zsh completion
