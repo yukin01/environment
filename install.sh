@@ -25,7 +25,7 @@ if [ -d ~/dotfiles ]; then
   echo Dotfiles repository already exists.
 else
   set -x
-  git clone https://github.com/yukin01/dotfiles.git ~/dotfiles
+  git clone --recursive https://github.com/yukin01/dotfiles.git ~/dotfiles
   set +x
 fi
 
@@ -43,6 +43,8 @@ if [ $OS == "Mac" ]; then
 
       ln -snfv $DOTFILES_DIR/$f $HOME/$f
   done
+else
+  echo Do nothing.
 fi
 
 echo
