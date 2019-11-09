@@ -28,10 +28,10 @@
       - vim
       - zsh
       - tmux
-      #- fzf
       - jq
       - python3-pip
       - golang-go
+      - tig
   become: true
 
 #- name: Upgrade pip3
