@@ -4,7 +4,7 @@ set -eu
 # rbenv
 echo "===== install rbenv via anyenv ====="
 sleep 0.5
-if which rbenv >/dev/null; then
+if type rbenv >/dev/null 2>&1; then
     echo "rbenv is already installed"
 else
     anyenv install rbenv
@@ -17,7 +17,7 @@ echo ""
 # nodenv
 echo "===== install nodenv via anyenv ====="
 sleep 0.5
-if which nodenv >/dev/null; then
+if type nodenv >/dev/null 2>&1; then
     echo "already installed"
 else
     anyenv install nodenv
@@ -27,23 +27,10 @@ echo ""
 echo "path: $(which nodenv)"
 echo ""
 
-# goenv
-# echo "===== install goenv via anyenv ====="
-# sleep 0.5
-# if which goenv >/dev/null; then
-#     echo "already installed"
-# else
-#     anyenv install goenv
-#     eval "$(anyenv init -)"
-# fi
-# echo ""
-# echo "path: $(which goenv)"
-# echo ""
-
 # ruby
 echo "===== install ruby via rbenv ====="
 sleep 0.5
-if which ruby | grep .rbenv >/dev/null; then
+if type ruby | grep .rbenv >/dev/null 2>&1; then
     echo "already installed"
 else
     eval "$(rbenv init -)"
@@ -60,8 +47,8 @@ echo ""
 echo "===== install bundler via gem ====="
 sleep 0.5
 # one liner sample
-# which bundle > /dev/null 2>&1 || gem install bundler
-if which bundle > /dev/null; then
+# type bundle > /dev/null 2>&1 || gem install bundler
+if type bundle > /dev/null 2>&1; then
     echo "already installed"
 else
     gem install bundler
@@ -74,7 +61,7 @@ echo ""
 # node
 echo "===== install node via nodenv ====="
 sleep 0.5
-if which node | grep .nodenv >/dev/null; then
+if type node | grep .nodenv > /dev/null 2>&1; then
     echo "already installed"
 else
     nodenv install 10.12.0
@@ -88,21 +75,6 @@ echo ""
 echo "npm_path: $(which npm)"
 echo "npm_version: $(npm -v)"
 echo ""
-
-# go
-# echo "===== install go via goenv ====="
-# sleep 0.5
-# if which go | grep .goenv >/dev/null; then
-#     echo "already installed"
-# else
-#     goenv install 1.11.2
-#     goenv global 1.11.2
-#     goenv rehash
-# fi
-# echo ""
-# echo "path: $(which go)"
-# echo "version: $(go version)"
-# echo ""
 
 # prezto
 echo "===== install prezto ====="
