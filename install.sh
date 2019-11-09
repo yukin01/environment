@@ -28,17 +28,17 @@ echo "path: $(which nodenv)"
 echo ""
 
 # goenv
-echo "===== install goenv via anyenv ====="
-sleep 0.5
-if which goenv >/dev/null; then
-    echo "already installed"
-else
-    anyenv install goenv
-    eval "$(anyenv init -)"
-fi
-echo ""
-echo "path: $(which goenv)"
-echo ""
+# echo "===== install goenv via anyenv ====="
+# sleep 0.5
+# if which goenv >/dev/null; then
+#     echo "already installed"
+# else
+#     anyenv install goenv
+#     eval "$(anyenv init -)"
+# fi
+# echo ""
+# echo "path: $(which goenv)"
+# echo ""
 
 # ruby
 echo "===== install ruby via rbenv ====="
