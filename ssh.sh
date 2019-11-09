@@ -82,9 +82,9 @@ type git > /dev/null 2>&1 || (echo Please install git && exit 1)
 if [ -d ~/dotfiles ]; then
   cd ~/dotfiles
   set -x
-  [ -n $DOTFILES_TEST_FLAG ] && export GIT_SSH_COMMAND="ssh -i $HOME/id_rsa"
   git remote set-url origin git@github.com:yukin01/dotfiles.git
   git remote -v
+  git fetch
   set +x
 fi
 
