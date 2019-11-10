@@ -1,6 +1,6 @@
 VERSION=0.0.1
 IMAGE=ubuntu-dotfiles:$(VERSION)
-FILE_URL=https://raw.githubusercontent.com/yukin01/dotfiles/master/install.sh
+FILE_URL=dot.yukin01.dev
 
 .PHONY: build local test
 
