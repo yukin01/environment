@@ -1,61 +1,42 @@
 # Dotfiles
-My environment for MacBookPro
+My environment for MacOS and Ubuntu
 
-## Xcode
+## MacOS
+
+### Xcode
 
 Install *Xcode* from *App Store* and launch once.
 
-## Git & SSH
+
+### Installation
+
+Clone this repo and make symlinks for dotfiles.
 
 ```bash
-$ install -m 700 -d ~/.ssh
+$ bash -c "$(curl -fsSL dot.yukin01.dev)"
 ```
 
-Generate `.ssh/config`.
+### Git & SSH
+
+Configure SSH settings.
 
 ```bash
-$ echo "Host *
-  ServerAliveInterval 1200
-  ServerAliveCountMax 12
-  TCPKeepAlive yes
-  Compression yes
-  AddKeysToAgent yes
-  UseKeychain yes
-  GSSAPIAuthentication no
-  UseRoaming no" > ~/.ssh/config
+$ ./ssh.sh
 ```
 
-Generate an SSH key and upload it to GitHub.
-
-```bash
-$ ssh-keygen -t rsa -b 4096 -C "email@example.com"
-```
-
-Clone this repo.
-
-```bash
-$ git clone git@~~
-```
-
-Set global git configurations.
-
-```bash
-$ git config --global user.name "yukin01"
-$ git config --global user.email "hogehoge"
-```
-
-## Preinstall
+### Homebrew
 
 Install *Homebrew* and packages.
+
+```bash
+$ ./mac/01_homebrew
+```
 
 |                              name                              |           usage           |
 |:--------------------------------------------------------------:|:-------------------------:|
 |                  [Homebrew](https://brew.sh)                   | Package Manager for MacOS |
 | [Homebrew Bundle](https://github.com/Homebrew/homebrew-bundle) |  Bundler with `Brewfile`  |
 
-```bash
-$ sh preinstall.sh 2<&1
-```
 
 You can create a Brewfile from all the existing Homebrew packages.
 
@@ -65,26 +46,28 @@ $ brew bundle dump --force
 
 For `kubectl`, don't enable *Docker for Mac*'s k8s option before installing *Minikube*.
 
-## Dotfiles
 
-Create symbolic links for shell settings.
-e.g. `.bashrc`/`.zshrc`/`.vimrc`
+### Languages and Prezto
 
 ```bash
-$ sh link.sh 2<&1
+$ ./mac/02_setup
 ```
 
-## Languages and ZSH
+|                           name                           |                usage                |
+|:--------------------------------------------------------:|:-----------------------------------:|
+|        [anyenv](https://github.com/anyenv/anyenv)        |        All in one for **env         |
+|         [rbenv](https://github.com/rbenv/rbenv)          |        Ruby version manager         |
+|      [bundler](https://github.com/bundler/bundler)       |       Bundler for gem locally       |
+|        [nodenv](https://github.com/nodenv/nodenv)        |       Node.js version manager       |
+|    [prezto](https://github.com/sorin-ionescu/prezto)     | The configuration framework for Zsh |
+| [powerlevel9k](https://github.com/bhilburn/powerlevel9k) |   Zsh theme with Powerline Fonts    |
 
-|                     name                      |          usage          |
-|:---------------------------------------------:|:-----------------------:|
-|    [rbenv](https://github.com/rbenv/rbenv)    |  Ruby version manager   |
-| [bundler](https://github.com/bundler/bundler) | Bundler for gem locally |
-|  [nodenv](https://github.com/nodenv/nodenv)   | Node.js version manager |
-
-```bash
-$ sh install.sh 2<&1
-```
+<!-- - [anyenv](https://github.com/anyenv/anyenv) - All in one for **env
+- [rbenv](https://github.com/rbenv/rbenv) - Ruby version manager
+- [bundler](https://github.com/bundler/bundler) - Bundler for gem locally
+- [nodenv](https://github.com/nodenv/nodenv) - Node.js version manager
+- [prezto](https://github.com/sorin-ionescu/prezto) - The configuration framework for Zsh
+- [powerlevel9k](https://github.com/bhilburn/powerlevel9k) - Zsh theme with Powerline Fonts -->
 
 ### iTerm2
 
@@ -92,38 +75,50 @@ $ sh install.sh 2<&1
 - [color](https://github.com/wesbos/Cobalt2-iterm)
 - [font](https://github.com/powerline/fonts)
 
-## TODO
 
-- oh-my-zsh to [prezto](https://github.com/sorin-ionescu/prezto)
-- cobalt2 to [powerlevel9k](https://github.com/bhilburn/powerlevel9k)
-- [suggestion] fish
+## Ubuntu
+
+Clone this repo.
+
+```bash
+$ bash -c "$(curl -fsSL dot.yukin01.dev)"
+```
+
+Install Powerline Fonts.
+
+```bash
+$ ./fonts/install.sh
+```
+
+Configure SSH key pair.
+
+```bash
+$ ./ssh.sh
+```
+
+Install ansible.
+
+```bash
+$ ./ansible/install.sh
+```
+
+Run ansible playbook.
+
+```bash
+$ ansible-playbook -i hosts ubuntu.yml --ask-become-pass
+```
+
+## Suggestion
+
+- fish
+
 
 ## References
 
+- [Generating a new SSH key and adding it to the ssh-agent](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 - [お前らのSSH Keysの作り方は間違っている](https://qiita.com/suthio/items/2760e4cff0e185fe2db9)
 - [MacにHomeBrew,rbenv,bundlerをインストールする](https://qiita.com/shinkuFencer/items/3679cfd966f6a61ccd1b)
-- [nodebrewでnodejsがインストール出来ないときの対処法](https://qiita.com/twipg/items/c902b32b9e1e9ad7bc97)
-- [oh my zsh 導入手順メモ (Mac)](https://qiita.com/NaokiIshimura/items/249bb1a101b626a59387)
 - [ログインシェルとインタラクティブシェルと~/.bashrc達の関係](https://qiita.com/incep/items/7e5760de0c2c748296aa)
 - [zshの設定ファイルの読み込み順序と使い方Tipsまとめ](https://qiita.com/muran001/items/7b104d33f5ea3f75353f)
-
-<!-- ## 複数ユーザで使う場合
-
-パーミッションを変更する
-
-```bash
-$ sudo chmod -R g+w /usr/local/var
-$ sudo chmod -R g+w /usr/local/Homebrew
-```
-
-参考：[複数のユーザーでHomebrewを使う](https://qiita.com/yshishido/items/ba5cd86afe217b221457)
-
-所有者を統一しておく
-
-```bash
-$ sudo chown -R hoge /usr/local/var
-$ sudo chown -R hoge /usr/local/Homebrew
-$ sudo chown -R hoge /usr/local/Cellar
-$ sudo chown -R hoge /usr/local/Caskroom
-# 他にもあるかも
-``` -->
+- [DockerのVolumeマウントのオーナーとfixuidとeuid](https://bufferings.hatenablog.com/entry/2018/08/26/015035)
+- [優れた dotfiles を設計して、最速で環境構築する話](https://qiita.com/b4b4r07/items/24872cdcbec964ce2178)
