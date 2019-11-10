@@ -35,6 +35,7 @@
       - python3-pip
       - golang-go
       - tig
+      - tree
   become: true
 
 #- name: Upgrade pip3
