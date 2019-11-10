@@ -75,10 +75,30 @@ else
 fi
 
 echo
-echo ===== Set remote repository =====
+echo ===== Set git remote repository =====
 echo
 
 type git > /dev/null 2>&1 || (echo Please install git && exit 1)
+
+git_name=$(git config --global --get user.name || echo "")
+git_email=$(git config --global --get user.email || echo "")
+
+if [ -z $git_name ]; then
+  read -p "Enter your name: " git_name
+  git config --global user.name $git_name
+fi
+echo Your git user name is $git_name
+echo
+
+if [ -z $git_email ]; then
+  email=${email:-""}
+  read -p "Enter your email address ($email): " git_email
+  git_email=${git_email:-$email}
+  git config --global user.email $git_email
+fi
+echo Your git user email is $git_email
+echo
+
 if [ -d ~/dotfiles ]; then
   cd ~/dotfiles
   set -x

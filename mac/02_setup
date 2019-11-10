@@ -2,7 +2,7 @@
 set -eu
 
 # rbenv
-echo "===== install rbenv via anyenv ====="
+echo "===== Install rbenv via anyenv ====="
 sleep 0.5
 if type rbenv >/dev/null 2>&1; then
     echo "rbenv is already installed"
@@ -15,7 +15,7 @@ echo "path: $(which rbenv)"
 echo ""
 
 # nodenv
-echo "===== install nodenv via anyenv ====="
+echo "===== Install nodenv via anyenv ====="
 sleep 0.5
 if type nodenv >/dev/null 2>&1; then
     echo "already installed"
@@ -28,7 +28,7 @@ echo "path: $(which nodenv)"
 echo ""
 
 # ruby
-echo "===== install ruby via rbenv ====="
+echo "===== Install ruby via rbenv ====="
 sleep 0.5
 if type ruby | grep .rbenv >/dev/null 2>&1; then
     echo "already installed"
@@ -44,7 +44,7 @@ echo "version: $(ruby -v)"
 echo ""
 
 # bundler
-echo "===== install bundler via gem ====="
+echo "===== Install bundler via gem ====="
 sleep 0.5
 # one liner sample
 # type bundle > /dev/null 2>&1 || gem install bundler
@@ -59,7 +59,7 @@ echo "version: $(bundler -v)"
 echo ""
 
 # node
-echo "===== install node via nodenv ====="
+echo "===== Install node via nodenv ====="
 sleep 0.5
 if type node | grep .nodenv > /dev/null 2>&1; then
     echo "already installed"
@@ -77,7 +77,7 @@ echo "npm_version: $(npm -v)"
 echo ""
 
 # prezto
-echo "===== install prezto ====="
+echo "===== Install prezto ====="
 sleep 0.5
 if [ -d ${ZDOTDIR:-$HOME}/.zprezto ]; then
   echo "already installed"
@@ -94,4 +94,3 @@ else
 fi
 
 echo "Installed successfully"
-

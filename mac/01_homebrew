@@ -1,7 +1,8 @@
 #!/bin/bash
 set -eu
+BREW_PATH="$HOME/dotfiles/Brewfile"
 
-echo "===== install homebrew ====="
+echo "===== Install homebrew ====="
 sleep 0.5
 if type brew > /dev/null 2>&1; then
     echo "already installed"
@@ -9,7 +10,7 @@ else
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-echo "===== execute 'brew install' ====="
+echo "===== Execute 'brew install' ====="
 sleep 0.5
 # virtualbox で躓くことがあるので先にインストールしておく
 if type virtualbox > /dev/null 2>&1; then
@@ -17,7 +18,7 @@ if type virtualbox > /dev/null 2>&1; then
 else
     brew cask install virtualbox
 fi
-brew bundle
+brew bundle --file $BREW_PATH
 
 echo ""
 echo "Preinstalled successfully"

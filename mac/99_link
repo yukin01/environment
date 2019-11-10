@@ -1,6 +1,6 @@
 #!/bin/bash
 set -eu
-DOTFILES_DIR="${HOME}/dotfiles/files"
+DOTFILES_DIR="$HOME/dotfiles/files"
 
 echo "===== make dotfile's symbolic link ====="
 cd $DOTFILES_DIR
