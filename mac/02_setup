@@ -1,14 +1,36 @@
 #!/bin/bash
 set -eu
 
+function has() {
+  if [ $# -eq 2 ]; then
+    type $1 | grep $2 > /dev/null 2>&1
+  else
+    type $1 > /dev/null 2>&1
+  fi
+}
+
+# anyenv
+echo "===== Initialize anyenv ====="
+sleep 0.5
+has anyenv || (echo Please install anyenv. && exit 1)
+if [ -d ~/.config/anyenv/anyenv-install ]; then
+  echo "anyenv is already initialized"
+else
+  anyenv install --init
+fi
+echo ""
+echo "path: $(which anyenv)"
+echo ""
+
 # rbenv
 echo "===== Install rbenv via anyenv ====="
 sleep 0.5
-if type rbenv >/dev/null 2>&1; then
-    echo "rbenv is already installed"
+#if type rbenv >/dev/null 2>&1; then
+if has rbenv; then
+  echo "rbenv is already installed"
 else
-    anyenv install rbenv
-    eval "$(anyenv init -)"
+  anyenv install rbenv
+  eval "$(anyenv init -)"
 fi
 echo ""
 echo "path: $(which rbenv)"
@@ -17,11 +39,12 @@ echo ""
 # nodenv
 echo "===== Install nodenv via anyenv ====="
 sleep 0.5
-if type nodenv >/dev/null 2>&1; then
-    echo "already installed"
+#if type nodenv >/dev/null 2>&1; then
+if has nodenv; then
+  echo "already installed"
 else
-    anyenv install nodenv
-    eval "$(anyenv init -)"
+  anyenv install nodenv
+  eval "$(anyenv init -)"
 fi
 echo ""
 echo "path: $(which nodenv)"
@@ -30,13 +53,14 @@ echo ""
 # ruby
 echo "===== Install ruby via rbenv ====="
 sleep 0.5
-if type ruby | grep .rbenv >/dev/null 2>&1; then
-    echo "already installed"
+#if type ruby | grep .rbenv >/dev/null 2>&1; then
+if has ruby .rbenv; then
+  echo "already installed"
 else
-    eval "$(rbenv init -)"
-    rbenv install 2.6.3
-    rbenv global 2.6.3
-    rbenv rehash
+  eval "$(rbenv init -)"
+  rbenv install 2.6.3
+  rbenv global 2.6.3
+  rbenv rehash
 fi
 echo ""
 echo "path: $(which ruby)"
@@ -46,12 +70,11 @@ echo ""
 # bundler
 echo "===== Install bundler via gem ====="
 sleep 0.5
-# one liner sample
-# type bundle > /dev/null 2>&1 || gem install bundler
-if type bundle > /dev/null 2>&1; then
-    echo "already installed"
+#if type bundle > /dev/null 2>&1; then
+if has bundle; then
+  echo "already installed"
 else
-    gem install bundler
+  gem install bundler
 fi
 echo ""
 echo "path: $(which bundler)"
@@ -61,12 +84,13 @@ echo ""
 # node
 echo "===== Install node via nodenv ====="
 sleep 0.5
-if type node | grep .nodenv > /dev/null 2>&1; then
-    echo "already installed"
+#if type node | grep .nodenv > /dev/null 2>&1; then
+if has node .nodenv; then
+  echo "already installed"
 else
-    nodenv install 10.12.0
-    nodenv global 10.12.0
-    nodenv rehash
+  nodenv install 10.12.0
+  nodenv global 10.12.0
+  nodenv rehash
 fi
 echo ""
 echo "node_path: $(which node)"

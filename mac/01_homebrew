@@ -18,7 +18,7 @@ if type virtualbox > /dev/null 2>&1; then
 else
     brew cask install virtualbox
 fi
-brew bundle --file $BREW_PATH
+brew bundle --file=$BREW_PATH
 
 echo ""
 echo "Preinstalled successfully"
