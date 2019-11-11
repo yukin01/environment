@@ -31,8 +31,7 @@
     dest: "{{ item | regex_replace('/dotfiles/files', '') }}"
     state: link
     force: yes
-  with_items:
-    - "{{ found_dotfiles.files | map(attribute='path') | list }}"
+  loop: "{{ found_dotfiles.files | map(attribute='path') | list }}"
 
 - name: Change login shell
   user:

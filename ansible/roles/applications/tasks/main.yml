@@ -27,4 +27,5 @@
       - code
       - android-studio
       - slack
+      - postman
   become: yes

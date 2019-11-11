@@ -13,7 +13,10 @@
 
 - name: Add apt repository
   apt_repository:
-    repo: ppa:longsleep/golang-backports
+    repo: "{{ item }}"
+  loop:
+    - ppa:longsleep/golang-backports
+    - ppa:git-core/ppa
   become: yes
 
 - name: Install packages from apt
@@ -32,6 +35,7 @@
       - python3-pip
       - golang-go
       - tig
+      - tree
   become: true
 
 #- name: Upgrade pip3
