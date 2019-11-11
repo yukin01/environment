@@ -16,6 +16,7 @@ Clone this repo and make symlinks for dotfiles.
 $ bash -c "$(curl -fsSL dot.yukin01.dev)"
 ```
 
+
 ### Git & SSH
 
 Configure SSH settings.
@@ -23,6 +24,7 @@ Configure SSH settings.
 ```bash
 $ ./ssh.sh
 ```
+
 
 ### Homebrew
 
@@ -36,7 +38,6 @@ $ ./mac/01_homebrew
 |:--------------------------------------------------------------:|:-------------------------:|
 |                  [Homebrew](https://brew.sh)                   | Package Manager for MacOS |
 | [Homebrew Bundle](https://github.com/Homebrew/homebrew-bundle) |  Bundler with `Brewfile`  |
-
 
 You can create a Brewfile from all the existing Homebrew packages.
 
@@ -55,7 +56,7 @@ $ ./mac/02_setup
 
 |                           name                           |                usage                |
 |:--------------------------------------------------------:|:-----------------------------------:|
-|        [anyenv](https://github.com/anyenv/anyenv)        |        All in one for **env         |
+|        [anyenv](https://github.com/anyenv/anyenv)        |        All in one for ** env        |
 |         [rbenv](https://github.com/rbenv/rbenv)          |        Ruby version manager         |
 |      [bundler](https://github.com/bundler/bundler)       |       Bundler for gem locally       |
 |        [nodenv](https://github.com/nodenv/nodenv)        |       Node.js version manager       |
@@ -69,11 +70,20 @@ $ ./mac/02_setup
 - [prezto](https://github.com/sorin-ionescu/prezto) - The configuration framework for Zsh
 - [powerlevel9k](https://github.com/bhilburn/powerlevel9k) - Zsh theme with Powerline Fonts -->
 
+
 ### iTerm2
 
 - zsh `/usr/local/bin/zsh`
 - [color](https://github.com/wesbos/Cobalt2-iterm)
 - [font](https://github.com/powerline/fonts)
+
+
+### Manual
+
+- Login shell
+- Japanese Keyboard
+- VSCode Settings Sync
+- Google Chrome login
 
 
 ## Ubuntu
@@ -107,6 +117,7 @@ Run ansible playbook.
 ```bash
 $ ansible-playbook -i hosts ubuntu.yml --ask-become-pass
 ```
+
 
 ## Suggestion
 
