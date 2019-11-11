@@ -25,7 +25,6 @@ echo ""
 # rbenv
 echo "===== Install rbenv via anyenv ====="
 sleep 0.5
-#if type rbenv >/dev/null 2>&1; then
 if has rbenv; then
   echo "rbenv is already installed"
 else
@@ -39,7 +38,6 @@ echo ""
 # nodenv
 echo "===== Install nodenv via anyenv ====="
 sleep 0.5
-#if type nodenv >/dev/null 2>&1; then
 if has nodenv; then
   echo "already installed"
 else
@@ -53,7 +51,6 @@ echo ""
 # ruby
 echo "===== Install ruby via rbenv ====="
 sleep 0.5
-#if type ruby | grep .rbenv >/dev/null 2>&1; then
 if has ruby .rbenv; then
   echo "already installed"
 else
@@ -70,7 +67,6 @@ echo ""
 # bundler
 echo "===== Install bundler via gem ====="
 sleep 0.5
-#if type bundle > /dev/null 2>&1; then
 if has bundle; then
   echo "already installed"
 else
@@ -84,7 +80,6 @@ echo ""
 # node
 echo "===== Install node via nodenv ====="
 sleep 0.5
-#if type node | grep .nodenv > /dev/null 2>&1; then
 if has node .nodenv; then
   echo "already installed"
 else
