@@ -84,7 +84,7 @@ $ ./mac/02_setup
 - Japanese Keyboard
 - VSCode Settings Sync
 - Google Chrome login
-
+- `hub api user`
 
 ## Ubuntu
 
