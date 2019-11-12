@@ -104,7 +104,7 @@ else
   # prezto
   git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
   # powerline (font)
-  ./fonts/install.sh
+  ~/dotfiles/fonts/install.sh
 
   echo ""
   echo "Prezto is installed successfully"
@@ -112,4 +112,4 @@ else
 
 fi
 
-echo "Installed successfully"
+echo "Set up your macOS successfully"
