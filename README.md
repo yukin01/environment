@@ -81,7 +81,9 @@ $ ./mac/02_setup
 ### Manual
 
 - Login shell
-- Japanese Keyboard
+- Keyboard Settings
+  - Google Japanese IME
+  - Disable smart quotes and auto correction
 - VSCode Settings Sync
 - Google Chrome login
 - `hub api user`
