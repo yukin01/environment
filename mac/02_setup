@@ -43,6 +43,9 @@ if has nodenv; then
 else
   anyenv install nodenv
   eval "$(anyenv init -)"
+
+  # https://qiita.com/tea-red/items/361c72df55b3fcd0e0bf
+  touch $(nodenv root)/default-packages
 fi
 echo ""
 echo "path: $(which nodenv)"
@@ -83,6 +86,7 @@ sleep 0.5
 if has node .nodenv; then
   echo "already installed"
 else
+  eval "$(nodenv init -)"
   nodenv install 10.13.0
   nodenv global 10.13.0
   nodenv rehash
