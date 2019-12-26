@@ -14,6 +14,9 @@ fi
 # set alies
 [ -f ~/.envrc ] && source ~/.envrc
 
+# set vi keybind
+bindkey -v
+
 # fzf zsh completion and key-bindings
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

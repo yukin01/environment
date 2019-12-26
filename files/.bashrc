@@ -9,6 +9,9 @@ fi
 # Set alies
 [ -f ~/.envrc ] && . ~/.envrc
 
+# set vi keybind
+set -o vi
+
 # fzf bash completion and key-bindings
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
