@@ -18,5 +18,3 @@
     tfenv: "{{ home }}/.tfenv/bin/tfenv"
   args:
     creates: "{{ home }}/.tfenv/versions/{{ terraform_version }}"
-  #environment:
-  #  PATH: "{{ tfenv_dir }}/bin:{{ ansible_env.PATH }}"
