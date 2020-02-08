@@ -1,6 +1,6 @@
 ---
 # https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html#registering-variables-with-a-loop
-- name: Check version
+- name: Check versions
   shell: /usr/local/bin/{{ item.name }} {{ item.version_flag }}
   loop:
     - name: kubectl
@@ -18,6 +18,7 @@
   changed_when: no
   check_mode: no
 
+
 - name: Download tools
   get_url:
     url: "{{ result.item.url }}"
@@ -30,4 +31,24 @@
     index_var: index
     label: "{{ result.item.name }}-{{ result.item.version }}"
   when: result.item.version not in result.stdout
+  become: yes
+
+
+- name: Check helm version
+  shell: /usr/local/bin/helm version --short
+  register: checked_helm_version
+  failed_when: checked_helm_version.rc not in [0, 127]
+  changed_when: no
+  check_mode: no
+
+
+- name: Download helm {{ helm_version }}
+  unarchive:
+    src: "{{ helm_url }}"
+    dest: /usr/local/bin
+    remote_src: yes
+    extra_opts:
+      - --strip-components=1
+      - linux-amd64/helm
+  when: helm_version not in checked_helm_version.stdout
   become: yes

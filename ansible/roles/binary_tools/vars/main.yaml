@@ -3,3 +3,6 @@ kubectl_url: https://storage.googleapis.com/kubernetes-release/release/{{ kubect
 
 kind_version: v0.7.0
 kind_url: https://github.com/kubernetes-sigs/kind/releases/download/{{ kind_version }}/kind-linux-amd64
+
+helm_version: v3.0.0
+helm_url: https://get.helm.sh/helm-{{ helm_version }}-linux-amd64.tar.gz
