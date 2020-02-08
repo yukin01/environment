@@ -28,7 +28,6 @@
   loop: "{{ checked_version.results }}"
   loop_control:
     loop_var: result
-    index_var: index
     label: "{{ result.item.name }}-{{ result.item.version }}"
   when: result.item.version not in result.stdout
   become: yes
