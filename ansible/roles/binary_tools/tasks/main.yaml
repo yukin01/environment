@@ -1,0 +1,33 @@
+---
+# https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html#registering-variables-with-a-loop
+- name: Check version
+  shell: /usr/local/bin/{{ item.name }} {{ item.version_flag }}
+  loop:
+    - name: kubectl
+      version: "{{ kubectl_version }}"
+      url: "{{ kubectl_url }}"
+      version_flag: version --client --short
+    - name: kind
+      version: "{{ kind_version }}"
+      url: "{{ kind_url }}"
+      version_flag: version
+  loop_control:
+    label: "{{ item.name }}-{{ item.version }}"
+  register: checked_version
+  failed_when: checked_version.rc not in [0, 127]
+  changed_when: no
+  check_mode: no
+
+- name: Download tools
+  get_url:
+    url: "{{ result.item.url }}"
+    dest: /usr/local/bin/{{ result.item.name }}
+    mode: 755
+    force: yes
+  loop: "{{ checked_version.results }}"
+  loop_control:
+    loop_var: result
+    index_var: index
+    label: "{{ result.item.name }}-{{ result.item.version }}"
+  when: result.item.version not in result.stdout
+  become: yes

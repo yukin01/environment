@@ -8,3 +8,4 @@
     - anyenv
     - docker
     - gcloud
+    - binary_tools
