@@ -78,18 +78,16 @@ let g:airline_theme = 'luna'
 " NERDTree で dotfiles を表示する
 let NERDTreeShowHidden=1
 
-" デフォルトでツリーを表示させる
-let g:nerdtree_tabs_open_on_console_startup=1
-
 " for vim-nerdtree-tabs
 noremap <C-n> :NERDTreeFocusToggle<CR>
 
-" ファイル名が指定されてVIMが起動した場合はNERDTreeを表示しない
-" augroup auto_nerdtree
-"   autocmd!
-"   autocmd StdinReadPre * let s:std_in=1
-"   autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" augroup END
+" ファイル名が指定されていない場合か、ディレクトリを指定した場合にNERDTreeを表示する
+augroup auto_nerdtree
+  autocmd!
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+  autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+augroup END
 
 " NERDTree で git の状態を表示
 let g:NERDTreeIndicatorMapCustom = {
@@ -119,6 +117,9 @@ set autoread
 set hidden
 " 入力中のコマンドをステータスに表示する
 set showcmd
+" vim からクリップボードへの連携
+set clipboard^=unnamed,unnamedplus
+" set clipboard+=unnamed
 
 
 "##### 見た目系 #####
