@@ -17,14 +17,23 @@ fi
 # set vi keybind
 bindkey -v
 
+# Additional zsh completions
+fpath=($HOME/dotfiles/completions/zsh $fpath)
+autoload -U compinit && compinit
+
 # fzf zsh completion and key-bindings
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# aws-vault zsh completion
+#if type aws-vault >/dev/null 2>&1; then
+#  eval "$(aws-vault --completion-script-zsh)"
+#fi
+
 # ghq zsh completion
-fpath_ghq=$GOPATH/src/github.com/motemen/ghq/zsh
-[ -d $fpath_ghq ] && fpath=($fpath_ghq $fpath)
-autoload -U compinit && compinit
-unset fpath_ghq
+#fpath_ghq=$GOPATH/src/github.com/motemen/ghq/zsh
+#[ -d $fpath_ghq ] && fpath=($fpath_ghq $fpath)
+#autoload -U compinit && compinit
+#unset fpath_ghq
 
 # Customize to your needs...
 # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir vcs)
