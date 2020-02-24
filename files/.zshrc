@@ -31,10 +31,12 @@ unset fpath_ghq
 # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(aws)
 
 # Source Prezto.
-# if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-#   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-# fi
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
 # Setup starship
-export STARSHIP_CONFIG=~/.starship.toml
-eval "$(starship init zsh)"
+if type starship >/dev/null 2>&1; then
+  export STARSHIP_CONFIG=~/.starship.toml
+  eval "$(starship init zsh)"
+fi

@@ -99,6 +99,21 @@ echo "npm_path: $(which npm)"
 echo "npm_version: $(npm -v)"
 echo ""
 
+# prezto
+echo "===== Install prezto ====="
+sleep 0.5
+if [ -d ${ZDOTDIR:-$HOME}/.zprezto ]; then
+  echo "already installed"
+  echo ""
+else
+  # prezto
+  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+  echo ""
+  echo "Prezto is installed successfully"
+  echo ""
+
+fi
+
 # powerline fonts
 echo "===== Install powerline fonts ====="
 sleep 0.5
@@ -107,27 +122,9 @@ if find ~/Library/Fonts -name "Ubuntu*" >/dev/null 2>&1; then
   echo ""
 else
   ~/dotfiles/fonts/install.sh
-
   echo ""
   echo "Powerline fonts are installed successfully"
   echo ""
 fi
-
-# prezto
-# echo "===== Install prezto ====="
-# sleep 0.5
-# if [ -d ${ZDOTDIR:-$HOME}/.zprezto ]; then
-#   echo "already installed"
-# else
-#   # prezto
-#   git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-#   # powerline (font)
-#   ~/dotfiles/fonts/install.sh
-#
-#   echo ""
-#   echo "Prezto is installed successfully"
-#   echo ""
-#
-# fi
 
 echo "Set up your macOS successfully"

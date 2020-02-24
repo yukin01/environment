@@ -27,15 +27,15 @@ zstyle ':prezto:*:*' color 'yes'
 # Set the Prezto modules to load (browse modules).
 # The order matters.
 zstyle ':prezto:load' pmodule \
-  'environment' \
-  'terminal' \
-  'history' \
-  'directory' \
-  'spectrum' \
   'utility' \
   'completion' \
-  'prompt' \
   'syntax-highlighting' \
+#  'environment' \
+#  'terminal' \
+#  'history' \
+#  'directory' \
+#  'spectrum' \
+#  'prompt' \
 #  'autosuggestions'
 
 #
@@ -114,7 +114,7 @@ zstyle ':prezto:load' pmodule \
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
-zstyle ':prezto:module:prompt' theme 'powerlevel9k'
+# zstyle ':prezto:module:prompt' theme 'powerlevel9k'
 
 # Set the working directory prompt display length.
 # By default, it is set to 'short'. Set it to 'long' (without '~' expansion)
