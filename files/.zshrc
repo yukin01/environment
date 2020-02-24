@@ -27,10 +27,14 @@ autoload -U compinit && compinit
 unset fpath_ghq
 
 # Customize to your needs...
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(aws)
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir vcs)
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(aws)
 
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+# if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+#   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+# fi
+
+# Setup starship
+export STARSHIP_CONFIG=~/.starship.toml
+eval "$(starship init zsh)"
