@@ -3,5 +3,9 @@ add_newline = false
 [character]
 use_symbol_for_status = true
 
+[aws]
+displayed_items = "profile"
+
 [kubernetes]
+symbol = "⎈ "
 disabled = false
