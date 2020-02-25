@@ -26,6 +26,7 @@
     packages:
       - code
       - android-studio
+      - pycharm-community
       - slack
       - postman
   become: yes
