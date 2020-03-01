@@ -1,8 +1,4 @@
-kubectl_version: v1.14.0
-kubectl_url: https://storage.googleapis.com/kubernetes-release/release/{{ kubectl_version }}/bin/linux/amd64/kubectl
-
-kind_version: v0.7.0
-kind_url: https://github.com/kubernetes-sigs/kind/releases/download/{{ kind_version }}/kind-linux-amd64
-
-helm_version: v3.0.0
-helm_url: https://get.helm.sh/helm-{{ helm_version }}-linux-amd64.tar.gz
+kubectl_version: 1.14.0
+kind_version: 0.7.0
+helm_version: 3.0.0
+ghq_version: 1.1.0
