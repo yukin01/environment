@@ -10,16 +10,15 @@
   apt_repository:
     repo: "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main"
     filename: google-cloud-sdk
+    state: absent # python3 support...
   become: yes
 
 - name: Install google-cloud-sdk
   apt:
     name: "{{ packages }}"
-    state: present
+    state: absent # python3 support...
   vars:
     packages:
       - google-cloud-sdk
       - google-cloud-sdk-app-engine-go
   become: yes
-
-

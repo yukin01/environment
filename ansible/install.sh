@@ -1,7 +1,6 @@
 #!/bin/bash
 set -eu
 
-#printf "password: "
 read -p "password: " -s password
 
 echo $password | sudo -S apt-get update
