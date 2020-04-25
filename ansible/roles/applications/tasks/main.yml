@@ -2,6 +2,7 @@
 - name: Install apt repository
   apt_repository:
     repo: ppa:sicklylife/ppa # for shutter
+    state: absent # for 20.04
   become: yes
 
 - name: Install applications
@@ -14,8 +15,8 @@
       - gnome-tweaks
       - gnome-shell-extensions
       - terminator
-      - libgoo-canvas-perl # for shutter
-      - shutter
+      #- libgoo-canvas-perl # for shutter
+      #- shutter
   become: yes
 
 - name: Install applications from snap

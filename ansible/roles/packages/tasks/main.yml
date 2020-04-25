@@ -15,7 +15,7 @@
   apt_repository:
     repo: "{{ item }}"
   loop:
-    - ppa:longsleep/golang-backports
+    #- ppa:longsleep/golang-backports
     - ppa:git-core/ppa
   become: yes
 
@@ -33,9 +33,10 @@
       - tmux
       - jq
       - python3-pip
-      - golang-go
+        #- golang-go
       - tig
       - tree
+      - update-manager-core # 18.04 to 20.04
   become: true
 
 #- name: Upgrade pip3
@@ -49,6 +50,7 @@
     name:
       - awscli
     executable: pip3
+    state: absent # uninstall
   become: true
 
 - name: Install packages from snap
