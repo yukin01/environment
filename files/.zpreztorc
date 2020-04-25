@@ -30,9 +30,9 @@ zstyle ':prezto:load' pmodule \
   'utility' \
   'completion' \
   'syntax-highlighting' \
+  'history' \
 #  'environment' \
 #  'terminal' \
-#  'history' \
 #  'directory' \
 #  'spectrum' \
 #  'prompt' \
