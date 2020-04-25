@@ -1,9 +1,9 @@
 #!/bin/bash
 set -eu
 
-printf "password: "
-read -s password
+#printf "password: "
+read -p "password: " -s password
 
-echo $password | sudo -S sudo apt-get update
-echo $password | sudo -S sudo apt-get -y install python3-pip
-echo $password | sudo -S sudo pip3 install ansible
+echo $password | sudo -S apt-get update
+echo $password | sudo -S apt-get -y install python3-pip
+echo $password | sudo -S pip3 install ansible
