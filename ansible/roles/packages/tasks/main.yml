@@ -3,19 +3,18 @@
   apt:
     name: aptitude
     state: latest
-  become: true
+  become: yes
 
 - name: Upgrade all apt packages
   apt:
     update_cache: yes
     upgrade: safe
-  become: true
+  become: yes
 
 - name: Add apt repository
   apt_repository:
     repo: "{{ item }}"
   loop:
-    #- ppa:longsleep/golang-backports
     - ppa:git-core/ppa
   become: yes
 
@@ -33,17 +32,19 @@
       - tmux
       - jq
       - python3-pip
-        #- golang-go
       - tig
       - tree
+      - htop
       - update-manager-core # 18.04 to 20.04
-  become: true
+  become: yes
 
-#- name: Upgrade pip3
-#  command: pip3 install --upgrade pip
-#  register: result
-#  changed_when: '"Requirement already up-to-date" not in result.stdout'
-#  become: true
+- name: Uninstall packages from apt
+  apt:
+    name:
+      - golang-go # migrate to snap
+    state: absent
+    update_cache: yes
+  become: yes
 
 - name: Install packages from pip3
   pip:
@@ -51,7 +52,7 @@
       - awscli
     executable: pip3
     state: absent # uninstall
-  become: true
+  become: yes
 
 - name: Install packages from snap
   snap:
@@ -59,6 +60,7 @@
     classic: yes
   vars:
     packages:
+      - go
       - hub
       - starship
   become: yes
