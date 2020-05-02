@@ -7,5 +7,5 @@
     - shell
     - anyenv
     #- docker
-    - gcloud
+    #- gcloud
     - binary_tools

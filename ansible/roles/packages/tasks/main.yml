@@ -63,4 +63,5 @@
       - go
       - hub
       - starship
+      - google-cloud-sdk
   become: yes
