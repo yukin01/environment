@@ -1,0 +1,29 @@
+# sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_20.04/ /' > /etc/apt/sources.list.d/home:manuelschneid3r.list"
+# wget -nv https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_20.04/Release.key -O Release.key
+# sudo apt-key add - < Release.key
+# sudo apt-get update
+# sudo apt-get install albert
+---
+- name: Add Albert GPG key
+  apt_key:
+    url: https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_20.04/Release.key
+  become: yes
+
+- name: Add apt repository
+  apt_repository:
+    repo: "deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_20.04/ /"
+    filename: home:manuelschneid3r.list
+  become: yes
+
+- name: Install Albert
+  apt:
+    name:
+      - albert
+      - wmctrl # for window_switcher.py
+    state: present
+  become: yes
+
+- name: Install Albert python extentions repository
+  git:
+    repo: https://github.com/albertlauncher/python.git
+    dest: "{{ home }}/.local/share/albert/org.albert.extension.python/modules"

@@ -8,4 +8,5 @@
     - anyenv
     #- docker
     #- gcloud
+    - albert
     - binary_tools
