@@ -12,7 +12,7 @@
 - name: Add apt repository
   apt_repository:
     repo: "deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_20.04/ /"
-    filename: home:manuelschneid3r.list
+    filename: home:manuelschneid3r
   become: yes
 
 - name: Install Albert
