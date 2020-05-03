@@ -22,7 +22,13 @@ fpath=($HOME/dotfiles/completions/zsh $fpath)
 autoload -U compinit && compinit
 
 # fzf zsh completion and key-bindings
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+function () {
+  local fzf_dirs=/usr/share/doc/fzf/examples
+  for dir in $fzf_dirs; do
+    [ -f $dir/completion.zsh ] && source $dir/completion.zsh
+    [ -f $dir/key-bindings.zsh ] && source $dir/key-bindings.zsh
+  done
+}
 
 # aws-vault zsh completion
 #if type aws-vault >/dev/null 2>&1; then

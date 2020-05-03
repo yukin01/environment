@@ -27,7 +27,7 @@
     packages:
       - git
       - curl
-      - vim
+      - vim-gtk3
       - zsh
       - tmux
       - jq
@@ -35,6 +35,8 @@
       - tig
       - tree
       - htop
+      - fzf
+      - copyq
       - update-manager-core # 18.04 to 20.04
   become: yes
 
@@ -42,6 +44,7 @@
   apt:
     name:
       - golang-go # migrate to snap
+      - vim # migrate to vim-gtk3
     state: absent
     update_cache: yes
   become: yes
