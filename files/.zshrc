@@ -23,8 +23,9 @@ autoload -U compinit && compinit
 
 # fzf zsh completion and key-bindings
 function () {
-  local fzf_dirs=/usr/share/doc/fzf/examples
-  for dir in $fzf_dirs; do
+  local fzf_mac_dir="/usr/local/opt/fzf/shell"
+  local fzf_ubuntu_dir="/usr/share/doc/fzf/examples"
+  for dir in $fzf_mac_dir $fzf_ubuntu_dir; do
     [ -f $dir/completion.zsh ] && source $dir/completion.zsh
     [ -f $dir/key-bindings.zsh ] && source $dir/key-bindings.zsh
   done
@@ -40,10 +41,6 @@ function () {
 #[ -d $fpath_ghq ] && fpath=($fpath_ghq $fpath)
 #autoload -U compinit && compinit
 #unset fpath_ghq
-
-# Customize to your needs...
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir vcs)
-# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(aws)
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
