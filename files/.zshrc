@@ -23,9 +23,9 @@ autoload -U compinit && compinit
 
 # fzf zsh completion and key-bindings
 function () {
-  # https://qiita.com/mollifier/items/7fdbf15765ccf37f4881
-  local fzf_dirs="/usr/share/doc/fzf/examples /usr/local/opt/fzf/shell"
-  for dir in "${=fzf_dirs}"; do
+  local fzf_mac_dir="/usr/local/opt/fzf/shell"
+  local fzf_ubuntu_dir="/usr/share/doc/fzf/examples"
+  for dir in $fzf_mac_dir $fzf_ubuntu_dir; do
     [ -f $dir/completion.zsh ] && source $dir/completion.zsh
     [ -f $dir/key-bindings.zsh ] && source $dir/key-bindings.zsh
   done
