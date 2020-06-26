@@ -6,7 +6,7 @@
     - applications
     - shell
     - anyenv
-    #- docker
+    - docker
     #- gcloud
     - albert
     - binary_tools

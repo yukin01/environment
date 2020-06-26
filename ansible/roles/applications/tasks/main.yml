@@ -1,8 +1,7 @@
 ---
 - name: Install apt repository
   apt_repository:
-    repo: ppa:sicklylife/ppa # for shutter
-    state: absent # for 20.04
+    repo: ppa:linuxuprising/shutter # for shutter
   become: yes
 
 - name: Install applications
@@ -15,8 +14,7 @@
       - gnome-tweaks
       - gnome-shell-extensions
       - terminator
-      #- libgoo-canvas-perl # for shutter
-      #- shutter
+      - shutter
   become: yes
 
 - name: Install applications from snap
