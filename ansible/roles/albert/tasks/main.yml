@@ -19,6 +19,7 @@
   apt:
     name:
       - albert
+      - copyq
       - wmctrl # for window_switcher.py
     state: present
   become: yes

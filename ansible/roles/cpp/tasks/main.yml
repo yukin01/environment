@@ -1,0 +1,13 @@
+---
+- name: Install packages from apt
+  apt:
+    name: "{{ packages }}"
+    state: latest
+    update_cache: yes
+  vars:
+    packages:
+      - build-essential
+      - gdb
+      - libboost-dev
+  become: yes
+

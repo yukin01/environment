@@ -36,7 +36,6 @@
       - tree
       - htop
       - fzf
-      - copyq
       - update-manager-core # 18.04 to 20.04
   become: yes
 
