@@ -11,6 +11,13 @@ if [ -d $HOME/.anyenv ]; then
   eval "$(anyenv init - zsh)"
 fi
 
+# for asdf
+if [ -d $HOME/.asdf ]; then
+  source $HOME/.asdf/asdf.sh
+  fpath=(${ASDF_DIR}/completions $fpath)
+  autoload -Uz compinit && compinit
+fi
+
 # set alies
 [ -f ~/.envrc ] && source ~/.envrc
 

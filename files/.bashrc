@@ -6,6 +6,12 @@ if [ -d $HOME/.anyenv ]; then
     eval "$(anyenv init - bash)"
 fi
 
+# for asdf
+if [ -d $HOME/.asdf ]; then
+  source $HOME/.asdf/asdf.sh
+  source $HOME/.asdf/completions/asdf.bash
+fi
+
 # Set alies
 [ -f ~/.envrc ] && . ~/.envrc
 
