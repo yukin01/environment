@@ -1,0 +1,28 @@
+#!/bin/bash
+set -eu
+
+function has() {
+  if [ $# -eq 2 ]; then
+    type $1 | grep $2 > /dev/null 2>&1
+  else
+    type $1 > /dev/null 2>&1
+  fi
+}
+
+# asdf
+echo "===== Install asdf ====="
+sleep 0.5
+if [ -d $HOME/.asdf ]; then
+  echo "already installed"
+  echo ""
+else
+  git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf
+  git -C $HOME/.asdf checkout "$(git -C $HOME/.asdf describe --abbrev=0 --tags)"
+fi
+
+if has asdf && has asdf-install; then
+  asdf-install
+else
+  export PATH=$HOME/.asdf/bin:$HOME/dotfiles/bin:$PATH
+  asdf-install
+fi
