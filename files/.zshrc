@@ -19,10 +19,19 @@ if [ -d $HOME/.asdf ]; then
 fi
 
 # set alies
-[ -f ~/.envrc ] && source ~/.envrc
+[ -f $HOME/.envrc ] && source $HOME/.envrc
 
 # set vi keybind
 bindkey -v
+
+# for kubectl completion
+type kubectl &>/dev/null && source <(kubectl completion zsh)
+
+# for awscli completion
+#if type aws_completer &>/dev/null; then
+#  complete -C aws_completer aws
+#  complete -C aws_completer aws-vault
+#fi
 
 # Additional zsh completions
 fpath=($HOME/dotfiles/completions/zsh $fpath)
@@ -56,6 +65,9 @@ fi
 
 # Setup starship
 if type starship >/dev/null 2>&1; then
-  export STARSHIP_CONFIG=~/.starship.toml
+  export STARSHIP_CONFIG=$HOME/.starship.toml
   eval "$(starship init zsh)"
 fi
+
+# Enable bash compeletion for awscli
+#autoload bashcompinit && bashcompinit
