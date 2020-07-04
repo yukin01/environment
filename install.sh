@@ -33,7 +33,7 @@ echo
 echo ===== make Dotfiles symbolic link =====
 echo
 
-if [ $OS == "Mac" ]; then
+if [ $OS == "Mac" ] || [ $1 == "--force" ]; then
   DOTFILES_DIR="$HOME/dotfiles/files"
   cd $DOTFILES_DIR
   for f in .??*; do
