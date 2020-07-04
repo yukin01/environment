@@ -1,0 +1,45 @@
+---
+- name: Install asdf repository
+  git:
+    repo: https://github.com/asdf-vm/asdf.git
+    dest: "{{ home }}/.asdf"
+    version: v0.7.8
+
+- name: Install asdf-nodejs dependencies
+  apt:
+    name: "{{ packages }}"
+    state: latest
+    update_cache: yes
+  vars:
+    packages:
+      - dirmngr
+      - gpg
+  become: yes
+
+# https://github.com/rbenv/ruby-build/wiki
+# apt-get install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev
+- name: Install apt package for ruby-build
+  apt:
+    name: "{{ packages }}"
+    state: latest
+    update_cache: yes
+  vars:
+    packages:
+      - autoconf
+      - bison
+      - build-essential
+      - libssl-dev
+      - libyaml-dev
+      - libreadline6-dev
+      - zlib1g-dev
+      - libncurses5-dev
+      - libffi-dev
+      - libgdbm6
+      - libgdbm-dev
+      - libdb-dev
+  become: yes
+
+- name: Install plugins and tools
+  command: "{{ home }}/dotfiles/bin/asdf-install"
+  environment:
+    PATH: "{{ home }}/.asdf/bin:{{ ansible_env.PATH }}"

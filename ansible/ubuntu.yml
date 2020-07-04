@@ -5,9 +5,10 @@
     - git_config
     - applications
     - shell
-    - anyenv
+    # - anyenv
     - docker
-    #- gcloud
+    # - gcloud
     - albert
     - binary_tools
     - cpp
+    - asdf
