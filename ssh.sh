@@ -29,11 +29,19 @@ else
 fi
 # [ ! -d ~/.ssh ] && install -m 700 -d ~/.ssh
 
+if [ ! -d ~/.ssh/conf.d ]; then
+  set -x
+  mkdir ~/.ssh/conf.d
+  set +x
+fi
+
 echo
 echo ===== Make SSH config file =====
 echo
 
 SSH_CONFIG=$(cat <<-EOS
+Include conf.d/*
+
 Host *
   ServerAliveInterval 1200
   ServerAliveCountMax 12
