@@ -6,10 +6,10 @@
 #
 
 # for anyenv
-if [ -d $HOME/.anyenv ]; then
-  export PATH=$HOME/.anyenv/bin:$PATH
-  eval "$(anyenv init - zsh)"
-fi
+#if [ -d $HOME/.anyenv ]; then
+#  export PATH=$HOME/.anyenv/bin:$PATH
+#  eval "$(anyenv init - zsh)"
+#fi
 
 # for asdf
 if [ -d $HOME/.asdf ]; then
@@ -35,7 +35,7 @@ type kubectl &>/dev/null && source <(kubectl completion zsh)
 
 # Additional zsh completions
 fpath=($HOME/dotfiles/completions/zsh $fpath)
-autoload -U compinit && compinit
+autoload -Uz compinit && compinit
 
 # fzf zsh completion and key-bindings
 function () {
@@ -58,6 +58,9 @@ function () {
 #autoload -U compinit && compinit
 #unset fpath_ghq
 
+# autoload only once
+#autoload -U compinit && compinit
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -68,6 +71,3 @@ if type starship >/dev/null 2>&1; then
   export STARSHIP_CONFIG=$HOME/.starship.toml
   eval "$(starship init zsh)"
 fi
-
-# Enable bash compeletion for awscli
-#autoload bashcompinit && bashcompinit
