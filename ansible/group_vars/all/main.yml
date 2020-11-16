@@ -1,7 +1,7 @@
 ---
 screen_name: yukin01
 screen_name_sub: _yukin01
-email_address: bump1105@gmail.com
+git_email: 38382781+yukin01@users.noreply.github.com
 home: "{{ ansible_env.HOME }}"
 
 include_vars:

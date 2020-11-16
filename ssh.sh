@@ -92,17 +92,17 @@ git_name=$(git config --global --get user.name || echo "")
 git_email=$(git config --global --get user.email || echo "")
 
 if [ -z $git_name ]; then
-  read -p "Enter your name: " git_name
-  git config --global user.name $git_name
+  default_git_name="yukin01"
+  read -p "Enter your name ($default_git_name): " git_name
+  git config --global user.name ${git_name:=$default_git_name}
 fi
 echo Your git user name is $git_name
 echo
 
 if [ -z $git_email ]; then
-  email=${email:-""}
-  read -p "Enter your email address ($email): " git_email
-  git_email=${git_email:-$email}
-  git config --global user.email $git_email
+  default_git_email="38382781+yukin01@users.noreply.github.com"
+  read -p "Enter your email address ($default_git_email): " git_email
+  git config --global user.email ${git_email:=$default_git_email}
 fi
 echo Your git user email is $git_email
 echo

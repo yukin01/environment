@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eu
+set -e
 
 OS=""
 if [ "$(uname)" == "Darwin" ]; then
