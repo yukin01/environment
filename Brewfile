@@ -1,6 +1,4 @@
-tap "argoproj/tap"
 tap "derailed/k9s"
-tap "github/gh"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-versions"
