@@ -18,6 +18,13 @@ if [ -d $HOME/.asdf ]; then
   autoload -Uz compinit && compinit
 fi
 
+# for gcloud on macos
+if type brew > /dev/null 2>&1; then
+  export CLOUDSDK_PYTHON="$(brew --prefix)/opt/python@3.8/libexec/bin/python"
+  source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+  source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+fi
+
 # set alies
 [ -f $HOME/.envrc ] && source $HOME/.envrc
 
