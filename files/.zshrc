@@ -11,6 +11,11 @@
 #  eval "$(anyenv init - zsh)"
 #fi
 
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
 # for asdf
 if [ -d $HOME/.asdf ]; then
   source $HOME/.asdf/asdf.sh
@@ -32,7 +37,7 @@ fi
 bindkey -v
 
 # for kubectl completion
-type kubectl &>/dev/null && source <(kubectl completion zsh)
+#type kubectl &>/dev/null && source <(kubectl completion zsh)
 
 # for awscli completion
 #if type aws_completer &>/dev/null; then
@@ -69,9 +74,9 @@ function () {
 #autoload -U compinit && compinit
 
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+#if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+#  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+#fi
 
 # Setup starship
 if type starship >/dev/null 2>&1; then
