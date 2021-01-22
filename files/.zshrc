@@ -41,15 +41,15 @@ type kubectl &>/dev/null && source <(kubectl completion zsh)
 #fi
 
 # Additional zsh completions
-fpath=($HOME/dotfiles/completions/zsh $fpath)
-autoload -Uz compinit && compinit
+# fpath=($HOME/dotfiles/completions/zsh $fpath)
+# autoload -Uz compinit && compinit
 
 # fzf zsh completion and key-bindings
 function () {
   local fzf_mac_dir="/usr/local/opt/fzf/shell"
   local fzf_ubuntu_dir="/usr/share/doc/fzf/examples"
   for dir in $fzf_mac_dir $fzf_ubuntu_dir; do
-    [ -f $dir/completion.zsh ] && source $dir/completion.zsh
+#    [ -f $dir/completion.zsh ] && source $dir/completion.zsh
     [ -f $dir/key-bindings.zsh ] && source $dir/key-bindings.zsh
   done
 }
@@ -77,4 +77,9 @@ fi
 if type starship >/dev/null 2>&1; then
   export STARSHIP_CONFIG=$HOME/.starship.toml
   eval "$(starship init zsh)"
+fi
+
+# Profiling
+if (which zprof > /dev/null 2>&1) ;then
+  zprof | less
 fi
